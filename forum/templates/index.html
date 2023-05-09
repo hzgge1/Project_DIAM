@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/style/styles.css">
+    <title>
+        {% block title %}
+            Clarify
+        {% endblock %}
+    </title>
+</head>
+<body>
+
+{% block header %}
+    <header>
+        <nav class="nav-home">
+            <a href="#"><img src="../static/images/clarify_logo.png" alt="clarify_logo" /></a>
+        </nav>
+        {% block nav-searchbar %}
+            <nav class="nav-searchbar">
+
+            </nav>
+        {% endblock %}
+        <nav class="nav-menu">
+            <a href="#"><button>Login</button></a>
+        </nav>
+    </header>
+{% endblock %}
+
+{% block container %}
+    <div class="container">
+        {% if request.user.is_authenticated %}
+            <div class="nav-perfil">
+                <!-- conteúdo do nav-perfil aqui -->
+            </div>
+        {% endif %}
+        <div class="main {% if not request.user.is_authenticated %}full-width{% endif %}">
+            <!-- conteúdo do main aqui -->
+        </div>
+    </div>
+{% endblock %}
+
+    <footer>
+        {% block footer %}
+        {% endblock %}
+    </footer>
+
+</body>
+</html>
