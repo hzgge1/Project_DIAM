@@ -5,6 +5,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-jfISJnw8Ien6Qo0NQeH5hCvjG0BpfFmL/vMEf3Mf5jWOKry5+3PHF14XegF/EWkATZzLKLmNXPihkZl8doyPQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>
         {% block title %}
             Clarify
@@ -41,18 +44,25 @@
     <div class="container">
         {% if request.user.is_authenticated %}
             <div class="nav-perfil">
-                <!-- conteúdo do nav-perfil aqui -->
+                conteúdo do nav-perfil aqui
             </div>
         {% endif %}
         <div class="main {% if not request.user.is_authenticated %}full-width{% endif %}">
-            <!-- conteúdo do main aqui -->
+            conteúdo do main aqui
         </div>
     </div>
 {% endblock %}
 
 {% block footer %}
     <footer>
-
+        <p>1980 Dahlia St Denver, CO 80220, EUA</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+            <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>39.747371, -104.931689</p>
     </footer>
 {% endblock %}
 

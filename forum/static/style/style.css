@@ -102,5 +102,17 @@ header {
 }
 
 /***************************************** Footer ****************************************************/
-
+footer{
+    background-color: #BDD684;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+}
+.social-icons {
+    display: inline-block;
+    margin: 0 10px;
+}
 
