@@ -1,0 +1,106 @@
+* {
+    width: 100%;
+    margin: 0;
+    font-family: "Source Code Pro Medium", serif;
+}
+
+/***************************************** Header ****************************************************/
+header {
+    background-color: #BDD684;
+    overflow: hidden;
+    height: 50px;
+    display: flex;
+}
+
+/***** Navigation Home *****/
+.nav-home {
+    width: 10%;
+}
+
+.nav-home img {
+    float: left;
+    margin: 0 10% 0 10%;
+    max-height: 100%;
+    max-width: 50px;
+}
+
+/***** Navigation Search-bar *****/
+.nav-searchbar {
+    width: 40%;
+}
+.nav-searchbar input{
+    float: left;
+    height: 30px;
+    margin: 10px 0 10px 0;
+    border: none;
+}
+.nav-searchbar input[type="text"] {
+    max-width: 90%;
+    border-radius: 5px 0 0 5px;
+    box-sizing: border-box;
+}
+.nav-searchbar input[type="text"]:focus {
+    outline: none; /* tira linhas pretas quando selecionada */
+}
+.nav-searchbar input[type="submit"]{
+    max-width: 10%;
+    background-color: #BDD684;
+    font-size: 20px;
+    border-radius: 0 5px 5px 0;
+    background-color: #E2F0D6;
+}
+.nav-searchbar input[type="submit"]:hover{
+    background-color: #95AB63;
+}
+.nav-searchbar input[type="submit"]:active {
+    background-color: #E2F0D6;
+    color: #E2F0D6;
+}
+
+/***** Navigation Menu *****/
+.nav-menu {
+    width: 50%;
+}
+.nav-menu button {
+    color: #10222B;
+    font-size: 20px;
+    float: right;
+    height: 100%;
+    max-width: 20% ;
+    margin: 0;
+    border: none;
+    background-color: #BDD684;
+    cursor: pointer;
+}
+.nav-menu button:hover {
+    background-color: #E2F0D6;
+}
+.nav-menu button:active {
+    background-color: #BDD684;
+    color: #E2F0D6;
+}
+.nav-menu button:focus {
+    outline: none;
+}
+
+/**************************************** Container **************************************************/
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.nav-perfil {
+    flex: 0 0 30%; /* ocupa 30% da largura do contêiner */
+    background-color: #E2F0D6; /* exemplo de cor de fundo */
+}
+.main {
+    flex: 1; /* ocupa o restante da largura do contêiner */
+    background-color: white; /* exemplo de cor de fundo */
+}
+
+.full-width {
+    flex-basis: 100%; /* ocupa 100% da largura do contêiner */
+}
+
+/***************************************** Footer ****************************************************/
+
+

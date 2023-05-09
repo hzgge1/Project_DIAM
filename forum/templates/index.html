@@ -1,10 +1,10 @@
 {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}" />
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/style/styles.css">
     <title>
         {% block title %}
             Clarify
@@ -12,18 +12,27 @@
     </title>
 </head>
 <body>
+
 {% block header %}
     <header>
         <nav class="nav-home">
-            <a href="#"><img src="../static/images/clarify_logo.png" alt="clarify_logo" /></a>
+            <a href="#"><img src="../static/images/clarify_logo.png" alt="clarify_logo"/></a>
         </nav>
         {% block nav-searchbar %}
             <nav class="nav-searchbar">
-
+                <input type="text" placeholder="Search..." />
+                <input type="submit" value="🔍" />
             </nav>
         {% endblock %}
         <nav class="nav-menu">
+            <a href="#"><button>Sign-up</button></a>
             <a href="#"><button>Login</button></a>
+            {% if request.user.is_authenticated %}
+            <a href="#"><button>Logout</button></a>
+            {% else %}
+            <a href="#"><button>Contact</button></a>
+            <a href="#"><button>About</button></a>
+            {% endif %}
         </nav>
     </header>
 {% endblock %}
@@ -41,9 +50,11 @@
     </div>
 {% endblock %}
 
+{% block footer %}
     <footer>
-        {% block footer %}
-        {% endblock %}
+
     </footer>
+{% endblock %}
+
 </body>
 </html>
