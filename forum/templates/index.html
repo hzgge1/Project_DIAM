@@ -4,12 +4,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-jfISJnw8Ien6Qo0NQeH5hCvjG0BpfFmL/vMEf3Mf5jWOKry5+3PHF14XegF/EWkATZzLKLmNXPihkZl8doyPQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../static/style/styles.css">
     <title>
         {% block title %}
             Clarify
         {% endblock %}
     </title>
+{#    <style>#}
+{#        nav {#}
+{#            background-color: #333;#}
+{#            overflow: hidden;#}
+{#        }#}
+{#        nav img {#}
+{#            float: left;#}
+{#            height: 50px;#}
+{#            padding: 5px;#}
+{#        }#}
+{#        nav input[type="text"] {#}
+{#            float: left;#}
+{#            margin-top: 10px;#}
+{#            margin-left: 10px;#}
+{#            height: 30px;#}
+{#            width: 300px;#}
+{#            border-radius: 5px;#}
+{#            border: none;#}
+{#            padding-left: 10px;#}
+{#            box-sizing: border-box;#}
+{#        }#}
+{#        nav button {#}
+{#            float: right;#}
+{#            margin-top: 10px;#}
+{#            margin-right: 10px;#}
+{#            height: 30px;#}
+{#            border: none;#}
+{#            border-radius: 5px;#}
+{#            background-color: #ddd;#}
+{#            cursor: pointer;#}
+{#        }#}
+{#        nav button:hover {#}
+{#            background-color: #bbb;#}
+{#        }#}
+{#        nav button:active {#}
+{#            background-color: #999;#}
+{#            color: white;#}
+{#        }#}
+{#        nav button:focus {#}
+{#            outline: none;#}
+{#        }#}
+{#        .footer {#}
+{#            display: flex;#}
+{#            flex-direction: column;#}
+{#            align-items: center;#}
+{#            justify-content: center;#}
+{#            text-align: center;#}
+{#            margin-top: 50px;#}
+{#        }#}
+{##}
+{#        .social-icons a {#}
+{#            display: inline-block;#}
+{#            margin: 0 10px;#}
+{#        }#}
+{#    </style>#}
 </head>
 <body>
 {% block header %}
@@ -41,9 +99,17 @@
     </div>
 {% endblock %}
 
-    <footer>
-        {% block footer %}
-        {% endblock %}
-    </footer>
+<footer>
+    {% block footer %}
+        <p>1980 Dahlia St Denver, CO 80220, EUA</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+            <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>39.747371, -104.931689</p>
+    {% endblock %}
+</footer>
 </body>
 </html>
