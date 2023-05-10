@@ -14,7 +14,7 @@ urlpatterns = [
     path("profile", views.profile, name="profile"), # pagina perfil
     path("criar_questao", views.criar_questao, name="criar_questao"), # pagina criar questao / funcao criar questao -> pagina index
     path("pesquisa_questoes", views.pesquisa_questoes, name="pesquisa_questoes"), # funcao pesquisa questoes -> pagina lista questoes
-    path("questoes_user", views.questoes_user, name="quesotes_user"), # funcao questoes user -> pagina lista questoes
+    path("questoes_user", views.questoes_user, name="questoes_user"), # funcao questoes user -> pagina lista questoes
 
     path("<int:questao_id>/detalhe_questao", views.detalhe_questao, name='detalhe_questao'), # pagina detalhe questao
     path("<int:questao_id>/apagar_questao", views.apagar_questao, name='apagar_questao'), # funcao apagar questao
