@@ -155,7 +155,7 @@ def get_questions_with_tags(tags):
     return list(questoes_ordenadas)
 
 @login_required(login_url='/forum/login')
-def lista_questoes(request):
+def questoes_user(request):
     questoes = Questao.objects.filter(user=request.user)
     return render(request,'lista_questoes.html',{'lista_questoes':questoes})
 
