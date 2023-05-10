@@ -66,11 +66,15 @@ nav button:focus {
   box-shadow: 0 0 0 2px #95ab63;
 }
 
+.container.menu{
+    display: flex;
+    flex-wrap: wrap;
+}
 
 
 /*menu do lado esquerdo -----------------------------------------------------------------------------------------*/
 .profile_menu {
-  display: flex;/* with menu - flex */
+    flex: 0 0 30%;
   flex-direction: column;
   align-items: center;
 }
@@ -169,10 +173,16 @@ body section {
 }
 
 .index_content {
-  font-size: large;
-  width: 95%; /* adjust as needed */
-  margin-left: 50px; /* adjust as needed */
-  overflow: hidden; /* clearfix to contain floated elements */
+    flex: 1;
+  /*font-size: large;
+  width: 95%; /* adjust as needed
+  margin-left: 50px; /* adjust as needed
+  overflow: hidden; /* clearfix to contain floated elements
+ */
+}
+
+.index_content_full{
+     flex-basis: 100%;
 }
 
 .index_content p{

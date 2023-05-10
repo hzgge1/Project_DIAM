@@ -2,7 +2,8 @@
 
 {% block right_content %}
     <div class="criarquestao_content">
-        <form action="" method="post">
+        <form action="{% url 'forum:sign_up' %}" method="post">
+            {% csrf_token %}
             <h1 class="form_title">Sign Up</h1>
             <div class="control">
                 <label>First Name</label>

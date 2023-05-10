@@ -36,7 +36,9 @@
                   <img src="{% static 'images/profile.jpg' %}" alt="Profile Picture">
 
               </div>
-              <h4>quantas questões tem</h4>
+              {% if not request.user.is_superuser %}
+              <h4>Número de Questoes criadas: {{request.user.utilizador.numeroQuestoes}}</h4>
+              {% endif %}
               <ul class="button_list">
                   <li>
                       <a href="#" class="button">Editar Perfil</a>
@@ -78,8 +80,8 @@
           </section>
 
       <!-- Your website content here -->
-    {% endblock %}
     </main>
+  {% endblock %}
   {% block footer %}
     <footer>
         <div class="footer">

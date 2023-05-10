@@ -49,7 +49,7 @@ def sign_up(request):
             email = request.POST['email']
             try:
                 user = User.objects.create_user(username, email, password, first_name=firstname, last_name=lastname)
-                utilizador = Utilizador(user=user, imageURL="/forum/static/images/default.png", descricao="Sem Descrição.")
+                utilizador = Utilizador(user=user, imageURL="images/default.png", descricao="Sem Descrição.")
                 utilizador.save()
                 return HttpResponseRedirect(reverse("forum:loginView"))
             except:
@@ -89,7 +89,7 @@ def upload_image(request):
     if request.FILES['image']:
         myfile = request.FILES['image']
         fs = FileSystemStorage()
-        filename = fs.save("forum/static/images/" + request.user.username + ".png", myfile)
+        filename = fs.save("images/" + request.user.username + ".png", myfile)
         uploaded_file_url = fs.url(filename)
         request.user.utilizador.imageURL = filename[6:]
         request.user.utilizador.save()
@@ -100,27 +100,27 @@ def upload_image(request):
 def profile(request):
     return render(request, 'profile.html')
 
-# @login_required(login_url='/forum/login')
+@login_required(login_url='/forum/login')
 def criar_questao(request):
-    # if request.method == 'POST':
-    #     try:
-    #         texto_questao = request.POST['textoquestao']
-    #         tags = request.POST['tags']
-    #         questao = Questao.objects.create(questao_texto=texto_questao, questao_data=timezone.now(),user=request.user)
-    #         for tag in tags.split():
-    #             aux = Tag.objects.filter(tag_texto=tag)
-    #             if aux:
-    #                 aux[0].questao.add(questao)
-    #             else:
-    #                 new_tag = Tag.objects.create(tag_texto=tag)
-    #                 new_tag.questao.add(questao)
-    #         if not request.user.is_superuser:
-    #             request.user.utilizador.numeroQuestoes += 1
-    #             request.user.utilizador.save()
-    #     except(KeyError):
-    #         return render(request, 'criar_questao.html', {'error_message': "Erro"})
-    #     return HttpResponseRedirect(reverse('forum:index'))
-    # else:
+    if request.method == 'POST':
+         try:
+             texto_questao = request.POST['textoquestao']
+             tags = request.POST['tags']
+             questao = Questao.objects.create(questao_texto=texto_questao, questao_data=timezone.now(),user=request.user)
+             for tag in tags.split():
+                aux = Tag.objects.filter(tag_texto=tag)
+                if aux:
+                     aux[0].questao.add(questao)
+                else:
+                     new_tag = Tag.objects.create(tag_texto=tag)
+                     new_tag.questao.add(questao)
+             if not request.user.is_superuser:
+                 request.user.utilizador.numeroQuestoes += 1
+                 request.user.utilizador.save()
+         except(KeyError):
+             return render(request, 'criar_questao.html', {'error_message': "Erro"})
+         return HttpResponseRedirect(reverse('forum:index'))
+    else:
         return render(request, 'criar_questao.html')
 
 
@@ -155,7 +155,7 @@ def get_questions_with_tags(tags):
     return list(questoes_ordenadas)
 
 @login_required(login_url='/forum/login')
-def lista_questoes(request):
+def questoes_user(request):
     questoes = Questao.objects.filter(user=request.user)
     return render(request,'lista_questoes.html',{'lista_questoes':questoes})
 
