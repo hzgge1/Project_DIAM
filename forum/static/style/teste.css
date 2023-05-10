@@ -74,6 +74,8 @@ nav button:focus {
   flex-wrap: wrap;
   flex: 1 0 auto;
   background-color: white;
+  height: 100%;
+  margin-bottom: 58px;
 }
 
 .nav-perfil {
@@ -180,23 +182,29 @@ li a:hover{
 /* Conteudo Index */
 .index_content {
   font-size: large;
+  width: 95%; /* adjust as needed */
+  margin-left: 50px; /* adjust as needed */
   overflow: hidden; /* clearfix to contain floated elements */
-
+  margin-top: 50px;
 }
+
+
 .index_content p{
   margin-top: 40px;
 }
 
 .left {
-  margin-left: 15%;
-  margin-top: 10%;
   width: 40%; /* adjust as needed */
   float: left;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .right {
   width: 30%; /* adjust as needed */
   float: right;
+  margin-top: 10px;
 }
 
 .right img {
@@ -206,10 +214,12 @@ li a:hover{
 }
 
 .list {
-  width: 200px;
-  height: 200px;
+  width: 95%;
+  height: 150px;
   overflow: auto;
   clear: both;
+  overflow-y: scroll;
+  margin-bottom: 10px;
 }
 
 .list ul {
@@ -233,6 +243,33 @@ li a:hover{
   margin-bottom: 10px;
 }
 
+
 .question:hover {
-  background-color: #fff;
+  background-color: #95ab63;
+}
+
+
+/* Página About */
+.about_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /*height: 100vh; !* Set the height of the container to the full viewport height *!*/
+}
+
+.clarify_logo img {
+  margin-left: 44%;
+  margin-right: 56%;
+  margin-top: 5%;
+  width: 200px; /* Set the desired width */
+}
+
+.about_text_container p {
+  font-size: 1.2em; /* Set the desired font size */
+  margin-top: 40px;
+  margin-left: 120px;
+  width: 90%;
+  text-align: justify;
 }

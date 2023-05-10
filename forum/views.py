@@ -111,7 +111,7 @@ def profile(request):
 def criar_questao(request):
     if request.method == 'POST':
         try:
-            texto_questao = request.POST['description']
+            texto_questao = request.POST['textoquestao']
             tags = request.POST['tags']
             questao = Questao.objects.create(questao_texto=texto_questao, questao_data=timezone.now(),
                                              user=request.user)

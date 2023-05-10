@@ -52,6 +52,7 @@
             </div>
         {% endif %}
             <div class="main{% if not request.user.is_authenticated %} full-width{% endif %}">
+                {% block conteudo %}
                 <div class="index_content">
                     <div class="left">
                         <h3>"Connecting coders, clarifying code."</h3>
@@ -64,7 +65,7 @@
                         {% if list %}
                         <ul>
                             {% for questao in list %}
-                            <li class="question">{{ questao.questao_texto }}</li>
+                            <li class="question"><a href="{% url 'forum:detalhe_questao' questao.id %}">{{ questao.questao_texto }}</a></li>
                             {% endfor %}
                         </ul>
                         {% else  %}
@@ -73,6 +74,7 @@
                     </div>
                 </div>
             </div>
+            {% endblock %}
         </div>
         {% endblock %}
 

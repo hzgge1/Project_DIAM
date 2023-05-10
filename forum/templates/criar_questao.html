@@ -2,6 +2,10 @@
 
 {% block right_content %}
 
+{% if error_message %}
+   {{ error_message }}
+{% endif %}
+
     <div class="criarquestao_content">
 
         <h2>Create a new post</h2>
