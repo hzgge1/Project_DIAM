@@ -14,8 +14,10 @@ def index(request):
     latest_list = Questao.objects.order_by('questao_data')[:20]
     return render(request, 'teste.html', {"list": latest_list})
 
+
 def about(request):
     return render(request, 'about.html')
+
 
 def loginView(request):
     # metodo que verifica se existe dados em POST ( objetivo: minimalizar duas funcoes para uma funcao )
@@ -34,10 +36,13 @@ def loginView(request):
     else:
         return render(request, 'login_form.html', )
 
+
 @login_required(login_url='/forum/login')
 def logoutView(request):
     logout(request)
     return HttpResponseRedirect(reverse('forum:loginView'))
+
+
 def sign_up(request):
     if request.method == 'POST':
         try:
@@ -57,6 +62,7 @@ def sign_up(request):
             return render(request, "sign_up.html", {"error_message": "Erro"})
     else:
         return render(request, "sign_up.html")
+
 
 @login_required(login_url='/forum/login')
 def editar_perfil(request):
@@ -95,33 +101,35 @@ def upload_image(request):
         return True
     return False
 
+
 @login_required(login_url='/forum/login')
 def profile(request):
     return render(request, 'profile.html')
 
+
 @login_required(login_url='/forum/login')
 def criar_questao(request):
     if request.method == 'POST':
-         try:
-             texto_questao = request.POST['textoquestao']
-             tags = request.POST['tags']
-             questao = Questao.objects.create(questao_texto=texto_questao, questao_data=timezone.now(),user=request.user)
-             for tag in tags.split():
+        try:
+            texto_questao = request.POST['description']
+            tags = request.POST['tags']
+            questao = Questao.objects.create(questao_texto=texto_questao, questao_data=timezone.now(),
+                                             user=request.user)
+            for tag in tags.split():
                 aux = Tag.objects.filter(tag_texto=tag)
                 if aux:
-                     aux[0].questao.add(questao)
+                    aux[0].questao.add(questao)
                 else:
-                     new_tag = Tag.objects.create(tag_texto=tag)
-                     new_tag.questao.add(questao)
-             if not request.user.is_superuser:
-                 request.user.utilizador.numeroQuestoes += 1
-                 request.user.utilizador.save()
-         except(KeyError):
-             return render(request, 'criar_questao.html', {'error_message': "Erro"})
-         return HttpResponseRedirect(reverse('forum:index'))
+                    new_tag = Tag.objects.create(tag_texto=tag)
+                    new_tag.questao.add(questao)
+            if not request.user.is_superuser:
+                request.user.utilizador.numeroQuestoes += 1
+                request.user.utilizador.save()
+        except(KeyError):
+            return render(request, 'criar_questao.html', {'error_message': "Erro"})
+        return HttpResponseRedirect(reverse('forum:index'))
     else:
         return render(request, 'criar_questao.html')
-
 
 
 def pesquisa_questoes(request):
@@ -138,6 +146,7 @@ def pesquisa_questoes(request):
     else:
         return HttpResponseRedirect(reverse("forum:index"))
 
+
 def get_questions_with_tags(tags):
     questoes = {}
     for tag in tags.split():
@@ -153,26 +162,31 @@ def get_questions_with_tags(tags):
     questoes_ordenadas = sorted(questoes.keys(), key=lambda k: questoes[k], reverse=True)[:tamanho]
     return list(questoes_ordenadas)
 
+
 @login_required(login_url='/forum/login')
 def questoes_user(request):
     questoes = Questao.objects.filter(user=request.user)
-    return render(request,'lista_questoes.html',{'lista_questoes':questoes})
+    return render(request, 'lista_questoes.html', {'list': questoes})
+
 
 def detalhe_questao(request, questao_id):
-    questao = get_object_or_404(Questao,pk=questao_id)
+    questao = get_object_or_404(Questao, pk=questao_id)
+    list_respostas = Resposta.objects.filter(questao=questao)
     if request.method == 'POST':
         try:
             resposta_texto = request.POST['resposta_texto']
-            Resposta.objects.create(questao=questao,user=request.user,resposta_texto=resposta_texto,resposta_data=timezone.now())
+            Resposta.objects.create(questao=questao, user=request.user, resposta_texto=resposta_texto,
+                                    resposta_data=timezone.now())
         except(KeyError):
-            return render(request, "detalhe_qeustao.html", {'questao':questao, "erro_message":"Erro"})
+            return render(request, "detalhe_qeustao.html", {'questao': questao, "list": list_respostas, "erro_message": "Erro"})
+        return HttpResponseRedirect(reverse('forum:detalhe_questao'))
     else:
-        list_respostas = Resposta.objects.filter(questao=questao)
-        render(request,'detalhe_questao.html',{'questao':questao,"list":list_respostas})
+        return render(request, 'detalhe_questao.html', {'questao': questao, "list": list_respostas})
+
 
 @login_required(login_url='/forum/login')
 def apagar_questao(request, questao_id):
-    questao = get_object_or_404(Questao,pk=questao_id)
+    questao = get_object_or_404(Questao, pk=questao_id)
     user = questao.user
     questao.delete()
     user.utilizador.numeroQuestoes -= 1

@@ -227,8 +227,9 @@ body section {
   margin-bottom: 10px;
 }
 
+
 .question:hover {
-  background-color: #fff;
+  background-color: #95ab63;
 }
 
 
@@ -274,5 +275,26 @@ button[type="submit"]:hover {
   background-color: #e2f0d6;
 }
 
+/*about page css -----------------------------------------------------------------------------------------------*/
 
+.about_container {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  /*height: 100vh; !* Set the height of the container to the full viewport height *!*/
+}
 
+.clarify_logo img {
+  margin-left: 44%;
+  margin-right: 56%;
+  margin-top: 5%;
+  width: 200px; /* Set the desired width */
+}
+
+.about_text_container p {
+  font-size: 1.2em; /* Set the desired font size */
+  margin-top: 40px;
+  margin-left: 120px;
+  width: 90%;
+  text-align: justify;
+}
