@@ -100,27 +100,27 @@ def upload_image(request):
 def profile(request):
     return render(request, 'profile.html')
 
-@login_required(login_url='/forum/login')
+# @login_required(login_url='/forum/login')
 def criar_questao(request):
-    if request.method == 'POST':
-        try:
-            texto_questao = request.POST['textoquestao']
-            tags = request.POST['tags']
-            questao = Questao.objects.create(questao_texto=texto_questao, questao_data=timezone.now(),user=request.user)
-            for tag in tags.split():
-                aux = Tag.objects.filter(tag_texto=tag)
-                if aux:
-                    aux[0].questao.add(questao)
-                else:
-                    new_tag = Tag.objects.create(tag_texto=tag)
-                    new_tag.questao.add(questao)
-            if not request.user.is_superuser:
-                request.user.utilizador.numeroQuestoes += 1
-                request.user.utilizador.save()
-        except(KeyError):
-            return render(request, 'criar_questao.html', {'error_message': "Erro"})
-        return HttpResponseRedirect(reverse('forum:index'))
-    else:
+    # if request.method == 'POST':
+    #     try:
+    #         texto_questao = request.POST['textoquestao']
+    #         tags = request.POST['tags']
+    #         questao = Questao.objects.create(questao_texto=texto_questao, questao_data=timezone.now(),user=request.user)
+    #         for tag in tags.split():
+    #             aux = Tag.objects.filter(tag_texto=tag)
+    #             if aux:
+    #                 aux[0].questao.add(questao)
+    #             else:
+    #                 new_tag = Tag.objects.create(tag_texto=tag)
+    #                 new_tag.questao.add(questao)
+    #         if not request.user.is_superuser:
+    #             request.user.utilizador.numeroQuestoes += 1
+    #             request.user.utilizador.save()
+    #     except(KeyError):
+    #         return render(request, 'criar_questao.html', {'error_message': "Erro"})
+    #     return HttpResponseRedirect(reverse('forum:index'))
+    # else:
         return render(request, 'criar_questao.html')
 
 
