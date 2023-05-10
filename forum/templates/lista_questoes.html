@@ -1,20 +1,20 @@
 {% extends 'index.html' %}
 
-{% block main %}
+{% block right_content %}
 
     <div class="criarquestao_content">
 
-{#        <div class="list">#}
-{#            {% if list %}#}
-{#                <ul>#}
-{#                    {% for questao in list %}#}
-{#                        <li class="question">{{ questao.questao_texto }}</li>#}
-{#                    {% endfor %}#}
-{#                </ul>#}
-{#            {% else  %}#}
-{#                A lista está vazia#}
-{#            {% endif %}#}
-{#        </div>#}
+        <div class="list">
+            {% if list %}
+                <ul>
+                    {% for questao in list %}
+                        <li class="question">{{ questao.questao_texto }}</li>
+                    {% endfor %}
+                </ul>
+            {% else  %}
+                A lista está vazia
+            {% endif %}
+        </div>
     </div>
 
 {% endblock %}
