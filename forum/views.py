@@ -1,5 +1,4 @@
-from datetime import timezone
-
+from django.utils import timezone
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -13,7 +12,7 @@ from forum.models import Questao, Resposta, Like, Utilizador, Tag
 
 def index(request):
     latest_list = Questao.objects.order_by('questao_data')[:20]
-    return render(request, 'index.html', {"list": latest_list})
+    return render(request, 'teste.html', {"list": latest_list})
 
 def about(request):
     return render(request, 'about.html')

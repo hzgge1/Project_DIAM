@@ -5,9 +5,10 @@
     <div class="criarquestao_content">
 
         <h2>Create a new post</h2>
-        <form class="criarquestao_form">
+        <form class="criarquestao_form" action="{% url 'forum:criar_questao' %}" method="post">
+            {% csrf_token %}
             <label for="description">Description:</label><br>
-            <textarea id="description" name="description" rows="5" cols="50"></textarea><br>
+            <textarea id="description" name="textoquestao" rows="5" cols="50"></textarea><br>
 
             <label for="tags">Tags:</label><br>
             <input type="text" id="tags" name="tags"><br>

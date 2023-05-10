@@ -1,0 +1,238 @@
+/* Corpo da Págna */
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  flex: 0 0 10%;
+}
+
+/* Nav */
+nav {
+  background-color: #95ab63;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* add this */
+  height: 100%;
+}
+
+nav img {
+  margin-left: 30px;
+  height: 45px;
+  width: 45px;
+  padding: 5px;
+}
+
+nav input[type="text"] {
+  display: flex;/*flex*/
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 30px;
+  width: 600px;
+  border-radius: 5px;
+  border: none;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+nav button {
+  margin-top: 10px;
+  margin-right: 10px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #b2be97;
+  cursor: pointer;
+  padding: 0 20px;
+}
+
+nav button:hover {
+  background-color: #e2f0d6;
+}
+
+nav button:active {
+  background-color: #95ab63;
+  color: #e2f0d6;
+}
+
+nav button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #95ab63;
+}
+
+/* Formato do Block Conteudo */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 0 auto;
+  background-color: white;
+}
+
+.nav-perfil {
+  flex: 0 0 25%; /* ocupa 30% da largura do contêiner */
+  background-color: #ccc; /* exemplo de cor de fundo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #e2f0d6; /* set the background color for the aside */
+  height: 100%;
+}
+
+
+.main {
+  flex: 1; /* ocupa o restante da largura do contêiner */
+  background-color: #eee; /* exemplo de cor de fundo */
+  align-items:center
+}
+
+.main full-width {
+  flex-basis: 100%; /* ocupa 100% da largura do contêiner */
+  align-items:center
+}
+
+/* Footer */
+footer {
+  flex: 0 0 10%;
+  background-color: #95ab63; /* set the background color for the footer */
+  position: fixed; /* make the footer fixed */
+  bottom: 0; /* set the bottom position of the footer */
+  left: 0; /* set the left position of the footer */
+  width: 100%; /* set the width of the footer */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.social-icons a {
+
+  display: inline-block;
+  margin: 0 10px;
+}
+.social-icons a i {
+  color: white;
+}
+
+/* Profile Menu */
+.nav_perfil h4{
+  margin-bottom: 20px;
+}
+
+.profile_picture {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 20px; /* add some margin to separate the picture and the buttons */
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.profile_picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.button_list {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.button_list li {
+  margin-bottom: 10px; /* add some margin between the buttons */
+  margin-top: 10px;
+}
+
+.button {
+  display: block;
+  padding: 10px;
+  background-color: #95ab63;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  width: 200px;
+}
+
+li a:hover{
+  background-color: #c1d19b;
+}
+
+
+
+/* Conteudo Index */
+.index_content {
+  font-size: large;
+  overflow: hidden; /* clearfix to contain floated elements */
+
+}
+.index_content p{
+  margin-top: 40px;
+}
+
+.left {
+  margin-left: 15%;
+  margin-top: 10%;
+  width: 40%; /* adjust as needed */
+  float: left;
+}
+
+.right {
+  width: 30%; /* adjust as needed */
+  float: right;
+}
+
+.right img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.list {
+  width: 200px;
+  height: 200px;
+  overflow: auto;
+  clear: both;
+}
+
+.list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list .question {
+  display: block;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: #ccc;
+}
+
+.question {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.question:hover {
+  background-color: #fff;
+}
