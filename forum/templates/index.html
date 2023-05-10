@@ -3,59 +3,59 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
       <title>Clarify</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  </head>
-  <body>
-  {% block header %}
-    <header>
-      <nav>
-        <a href="">
-            <!-- clicando vai para a home/profile -->
-            <img src="{% static 'images/clarify_logo.png' %}" alt="Logo">
-        </a>
-        
-        <input type="text" placeholder="Search">
-        <div class="button">
-            <!-- <button>Clarify</button>
-        <button>Search Bar Here</button> -->
-        <button>About</button>
-        <button>Login</button>
-        <button>Sign up</button>
-        </div>
-        
-      </nav>
-    </header>
-  {% endblock %}
-  {% block main %}
-    <main>
-      {% block profile_menu %}
-          <aside class="profile_menu">
-              <div class="profile_picture">
-                  <img src="{% static 'images/profile.jpg' %}" alt="Profile Picture">
+    </head>
+    <body>
+    {% block header %}
+        <header>
+            <nav>
+                <a href="{% url 'forum:index' %}"><img src="{% static 'images/clarify_logo.png' %}" alt="Logo"></a>
+                {% block search_bar %}
+                <input type="text" placeholder="Search">
+                {% endblock %}
+                <div class="button">
+                    <a href="{% url 'forum:about' %}"><button>About</button></a>
+                    {% if user.is_authenticated%}
+                    <a href="{% url 'forum:logoutView' %}"><button>Logout</button></a>
+                    {% else %}
+                    <a href="{% url 'forum:loginView' %}"><button>Login</button></a>
+                    <a href="{% url 'forum:sign_up' %}"><button>Sign Up</button></a>
+                    {% endif %}
+                </div>
+            </nav>
+        </header>
+    {% endblock %}
+    {% block main %}
+        <main>
+            {% block profile_menu %}
+            {% if user.is_authenticated %}
+            <aside class="profile_menu">
+                <div class="profile_picture">
+                    <img src="{% static 'images/profile.jpg' %}" alt="Profile Picture">
+                </div>
+                {% if not request.user.is_superuser %}
+                <h4>Número de Questoes criadas: {{request.user.utilizador.numeroQuestoes}}</h4>
+                {% endif %}
+                <ul class="button_list">
+                    <li>
+                        <a href="{% url 'forum:editar_perfil' %}" class="button">Editar Perfil</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'forum:questoes_user' %}" class="button">Questões</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'forum:criar_questao' %}" class="button">Criar Questão</a>
+                    </li>
+                </ul>
+            </aside>
+            {% endif %}
+            {% endblock %}
 
-              </div>
-              {% if not request.user.is_superuser %}
-              <h4>Número de Questoes criadas: {{request.user.utilizador.numeroQuestoes}}</h4>
-              {% endif %}
-              <ul class="button_list">
-                  <li>
-                      <a href="#" class="button">Editar Perfil</a>
-                  </li>
-                  <li>
-                      <a href="#" class="button">Questões</a>
-                  </li>
-                  <li>
-                      <a href="#" class="button">Criar Questão</a>
-                  </li>
-              </ul>
-          </aside>
-      {% endblock %}
-
-          <section>
-          {% block right_content %}
-                <div class="index_content">
+            <section>
+            {% block right_content %}
+                 <div class="index_content">
                     <div class="left">
                         <h3>"Connecting coders, clarifying code."</h3>
                         <p>Clarify is a forum for all things related to coding. With a community of passionate coders, you can find resources on a wide range of programming languages and frameworks. Collaborate, ask questions, and share your knowledge with other developers. Join Clarify today and explore the exciting world of coding!</p>
@@ -65,38 +65,34 @@
                     </div>
                     <div class="list">
                         {% if list %}
-                            <ul>
-                                {% for questao in list %}
-                                    <li class="question">{{ questao.questao_texto }}</li>
-                                {% endfor %}
-                            </ul>
+                        <ul>
+                            {% for questao in list %}
+                            <li class="question">{{ questao.questao_texto }}</li>
+                            {% endfor %}
+                        </ul>
                         {% else  %}
-                            A lista está vazia
+                        A lista está vazia
                         {% endif %}
                     </div>
                 </div>
-          {% endblock %}
+            {% endblock %}
+            </section>
+        </main>
+    {% endblock %}
 
-          </section>
-
-      <!-- Your website content here -->
-    </main>
-  {% endblock %}
-  {% block footer %}
-    <footer>
-        <div class="footer">
-            <p>1980 Dahlia St Denver, CO 80220, EUA</p>
-            <p>39.747371, -104.931689</p>
-            <div class="social-icons">
-              <a href="https://www.facebook.com/" ><i class="fab fa-facebook"></i></a>
-              <a href="https://www.youtube.com/" ><i class="fab fa-youtube"></i></a>
-              <a href="https://twitter.com/" ><i class="fab fa-twitter"></i></a>
-              <a href="https://www.linkedin.com/" ><i class="fab fa-linkedin"></i></a>
+    {% block footer %}
+        <footer>
+            <div class="footer">
+                <p>1980 Dahlia St Denver, CO 80220, EUA</p>
+                <p>39.747371, -104.931689</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/" ><i class="fab fa-facebook"></i></a>
+                     <a href="https://www.youtube.com/" ><i class="fab fa-youtube"></i></a>
+                    <a href="https://twitter.com/" ><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/" ><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
-            
-          </div>
-      <!-- Your website footer here -->
-    </footer>
-  {% endblock %}
-  </body>
+        </footer>
+    {% endblock %}
+    </body>
 </html>
