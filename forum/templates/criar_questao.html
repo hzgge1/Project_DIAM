@@ -4,13 +4,17 @@
 
     <div class="criarquestao_content">
 
-        <h2>Create a new post</h2>
-        <form class="criarquestao_form">
+        <h2>Create a new question</h2>
+        {% if error_message %}
+            <h4>{{ error_message }}</h4>
+        {% endif %}
+        <form class="criarquestao_form" method="post">
+            {% csrf_token %}
             <label for="description">Description:</label><br>
-            <textarea id="description" name="description" rows="5" cols="50"></textarea><br>
+            <textarea id="description" name="description" rows="5" cols="50" required></textarea><br>
 
             <label for="tags">Tags:</label><br>
-            <input type="text" id="tags" name="tags"><br>
+            <input type="text" id="tags" name="tags" required /><br>
 
             <button type="submit">Criar questão</button>
         </form>

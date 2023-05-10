@@ -67,7 +67,7 @@
                         {% if list %}
                         <ul>
                             {% for questao in list %}
-                            <li class="question">{{ questao.questao_texto }}</li>
+                            <li class="question"><a href="{% url 'forum:detalhe_questao' questao.id %}">{{ questao.questao_texto }}</a></li>
                             {% endfor %}
                         </ul>
                         {% else  %}
