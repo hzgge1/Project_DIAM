@@ -5,9 +5,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-          integrity="sha512-jfISJnw8Ien6Qo0NQeH5hCvjG0BpfFmL/vMEf3Mf5jWOKry5+3PHF14XegF/EWkATZzLKLmNXPihkZl8doyPQ=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha512-jfISJnw8Ien6Qo0NQeH5hCvjG0BpfFmL/vMEf3Mf5jWOKry5+3PHF14XegF/EWkATZzLKLmNXPihkZl8doyPQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <title>
         {% block title %}
             Clarify
@@ -35,6 +35,7 @@
             {% else %}
             <a href="#"><button>Contact</button></a>
             <a href="#"><button>About</button></a>
+            <a href="#"><button>Clarify</button></a>
             {% endif %}
         </nav>
     </header>
@@ -44,11 +45,21 @@
     <div class="container">
         {% if request.user.is_authenticated %}
             <div class="nav-perfil">
-                conteúdo do nav-perfil aqui
+                <img src="../static/images/profile.jpg" class="foto" alt="foto" />
+                {% if not request.user.is_superuser %}
+                    <p class="numeroquestoes-max">N/MAX</p>
+                {% endif %}
+                <a href="#"><button>About</button></a>
+                <a href="#"><button>About</button></a>
+                <a href="#"><button>About</button></a>
+                <a href="#"><button>About</button></a>
+                <a href="#"><button>About</button></a>
             </div>
         {% endif %}
         <div class="main {% if not request.user.is_authenticated %}full-width{% endif %}">
-            conteúdo do main aqui
+            {% block main %}
+                heng > bruno
+            {% endblock %}
         </div>
     </div>
 {% endblock %}
@@ -56,13 +67,13 @@
 {% block footer %}
     <footer>
         <p>1980 Dahlia St Denver, CO 80220, EUA</p>
-        <div class="social-icons">
-            <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
-            <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
-        </div>
         <p>39.747371, -104.931689</p>
+        <div class="social-icons">
+        <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+        <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+        </div>
     </footer>
 {% endblock %}
 
