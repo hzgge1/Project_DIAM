@@ -1,1 +1,33 @@
 {% extends 'index.html' %}
+
+{% block right_content %}
+    <div class="criarquestao_content">
+        <form action="" method="post">
+            <h1 class="form_title">Sign Up</h1>
+            <div class="control">
+                <label>First Name</label>
+                <input type="text" placeholder="First Name" name="firstname" required>
+            </div>
+            <div class="control">
+                <label>Last Name</label>
+                <input type="text" placeholder="Last Name" name="lastname" required>
+            </div>
+            <div class="control">
+                <label>Username</label>
+                <input type="text" placeholder="Enter Username" name="username" required>
+            </div>
+            <div class="control">
+                <label>New Password</label>
+                <input type="password" placeholder="New Password" name="password" required>
+            </div>
+            <div class="control">
+                <label>Email</label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+            </div>
+            <div class="control">
+                <button type="submit" class="login_button">sign up</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
