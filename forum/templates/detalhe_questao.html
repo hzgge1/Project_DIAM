@@ -15,8 +15,8 @@
             </p>
             <button class="like">
                 Like
-                <!-- TODO icon like-->
-                {# TODO icon coração cheio quando deu like, vazio quando não deu #}
+                <!-- icon like-->
+                {# icon coração cheio quando deu like, vazio quando não deu #}
             </button>
             {% if request.user.is_authenticated and request.user == questao.user %}
                 <button class="apagar" formaction="{% url 'forum:apagar_questao' questao.id %}" class="apagar_questao">
