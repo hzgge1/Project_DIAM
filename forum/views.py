@@ -171,7 +171,6 @@ def questoes_user(request):
 
 def detalhe_questao(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
-    list_respostas = Resposta.objects.filter(questao=questao)
     if request.method == 'POST':
         try:
             resposta_texto = request.POST['resposta_texto']
@@ -179,8 +178,10 @@ def detalhe_questao(request, questao_id):
                                     resposta_data=timezone.now())
         except(KeyError):
             return render(request, "detalhe_qeustao.html", {'questao': questao, "list": list_respostas, "erro_message": "Erro"})
-        return HttpResponseRedirect(reverse('forum:detalhe_questao'))
+        list_respostas = Resposta.objects.filter(questao=questao)
+        return render(request, 'detalhe_questao.html', {'questao': questao, "list": list_respostas})
     else:
+        list_respostas = Resposta.objects.filter(questao=questao)
         return render(request, 'detalhe_questao.html', {'questao': questao, "list": list_respostas})
 
 
