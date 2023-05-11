@@ -3,11 +3,11 @@
 {% block conteudo %}
     <div class="lista_questoes_container">
         <div class="title_container"><h2>Resultado Pesquisa</h2></div>
-        <div class="lista_questoes_index">
+        <div class="lista_questoes_user">
             {% if list %}
                 <ul style="margin: 0 20px">
                     {% for questao in list %}
-                        <li class="question"><a href="{% url 'forum:detalhe_questao' questao.id %}">
+                        <li class="question_user"><a href="{% url 'forum:detalhe_questao' questao.id %}">
                             <button href="{% url 'forum:detalhe_questao' questao.id %}" style="padding: 50px 0">{{ questao.questao_texto }}</button>
                         </a></li>
                     {% endfor %}

@@ -416,5 +416,39 @@ button[type="submit"]:hover {
   height: 20%;
 }
 
+/*lista_questoes*/
+
+.lista_questoes_user {
+  height: 80%;
+  overflow: auto;
+  clear: both;
+  overflow-y: scroll;
+}
 
 
+.lista_questoes_user ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista_questoes_user .question_user {
+  border-radius: 5px;
+  display: block;
+  margin: 5px 0px;
+  background-color: #ccc;
+}
+.question_user:hover {
+  background-color: #95ab63;
+}
+.question_user a button{
+  border-radius: 5px;
+  width: 100%;
+  font-size: 15px;
+  padding: 10px;
+  background-color: #95ab63;
+  border: none;
+}
+.question_user a button:hover{
+    background-color: #c1d19b;
+}
