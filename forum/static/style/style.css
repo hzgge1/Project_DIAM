@@ -115,7 +115,7 @@ nav button:focus {
   border-radius: 5px;
 }
 li a:hover{
-  background-color: #c1d19b;
+  background-color: #e2f0d6;
 }
 
 aside.profile_menu {
@@ -177,7 +177,7 @@ body section {
 }
 
 
-.index_content p{
+.index_content p {
   margin-top: 40px;
 }
 
@@ -229,7 +229,7 @@ body section {
 
 
 .question:hover {
-  background-color: #95ab63;
+  background-color: #e2f0d6;
 }
 
 
@@ -298,3 +298,68 @@ button[type="submit"]:hover {
   width: 90%;
   text-align: justify;
 }
+
+/*profile -----------------------------------------------------------------------------------------------------*/
+.profile_content {
+  font-size: large;
+}
+
+.profile_content .profile_text {
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+.profile_content p {
+  width: 90%;
+  text-align: justify;
+  margin-top: 40px;
+}
+
+.profile_content h4 {
+  margin-top: 20px;
+}
+
+.profile_content .list {
+  margin-top: 20px;
+  margin-left: 5%;
+}
+
+/*lista_questoes ----------------------------------------------------------------------------------------------*/
+
+.lista_questoes_list {
+
+  margin-left: 5%;
+  width: 90%;
+
+}
+
+.lista_questoes_list .lista_questoes_list_question {
+  display: block;
+  border-radius: 5px;
+  /*padding: 10px;*/
+  margin-bottom: 10px;
+  background-color: #95ab63;
+}
+
+.lista_questoes_list .lista_questoes_list_question button { /*ainda é necessário colocar scroll*/
+
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: block;
+  background-color: #95ab63;
+  color: #fff;
+  text-align: start;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  font-size: large;
+}
+
+.lista_questoes_list .lista_questoes_list_question button:hover{
+  background-color: #e2f0d6;
+}
+
+/*.lista_questoes_list_question:hover {*/
+/*  background-color: #e2f0d6;*/
+/*}*/
