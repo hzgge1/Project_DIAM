@@ -278,12 +278,13 @@ footer p {
     flex-direction: column;
 }
 
-label {
+.criarquestao_form label {
     font-weight: bold;
     margin-top: 10px;
 }
 
-textarea, input {
+.criarquestao_form textarea,
+.criarquestao_form input {
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -291,7 +292,7 @@ textarea, input {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 }
 
-button[type="submit"] {
+.criarquestao_form button[type="submit"] {
     background-color: #95ab63;
     color: #fff;
     border: none;
@@ -301,7 +302,7 @@ button[type="submit"] {
     transition: background-color 0.3s;
 }
 
-button[type="submit"]:hover {
+.criarquestao_form button[type="submit"]:hover {
     background-color: #e2f0d6;
 }
 
@@ -466,6 +467,52 @@ button[type="submit"]:hover {
 }
 
 /********************* Sign up ****************************************/
+/********************* Editar perfil **********************************/
+.editar_perfil_conteudo{
+    width: 50%;
+    margin: 20px 25%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
 
+.editar_perfil_conteudo form{
+    display: flex;
+    flex-direction: column;
+}
+.editar_perfil_conteudo form h2{
+    text-align: center;
+}
+
+.editar_perfil_conteudo form label {
+    font-weight: bold;
+}
+
+.editar_perfil_conteudo form textarea,
+.editar_perfil_conteudo form input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+.editar_perfil_conteudo form button[type="submit"] {
+    background-color: #95ab63;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.editar_perfil_conteudo form button[type="submit"]:hover {
+    background-color: #e2f0d6;
+}
+
+.editar_perfil_conteudo form button[type="submit"]:active{
+    background-color: #95ab63;
+}
 
 

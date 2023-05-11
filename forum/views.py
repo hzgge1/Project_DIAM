@@ -71,14 +71,11 @@ def editar_perfil(request):
             firstname = request.POST['firstname']
             lastname = request.POST['lastname']
             username = request.POST['username']
-            password = request.POST['password']
             email = request.POST['email']
             descricao = request.POST['descricao']
-            upload_image(request)
             request.user.first_name = firstname
             request.user.last_name = lastname
             request.user.username = username
-            request.user.password = password
             request.user.email = email
             request.user.utilizador.descricao = descricao
             request.user.save()
