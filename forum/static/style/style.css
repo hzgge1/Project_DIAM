@@ -320,9 +320,8 @@ button[type="submit"]:hover {
 .left {
     display: flex;
     flex-direction: column;
-
-    margin-left: 25px;
-    height: 50%;
+    margin-left: 50px;
+    height: 100%;
     width: 80%;
 }
 
@@ -337,8 +336,17 @@ button[type="submit"]:hover {
     height: auto;
 }
 
+.texto_introducao h2 {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.texto_introducao p {
+    width: 90%;
+}
+
 .texto_introducao {
-    font-size: large;
+    font-size: 20px;
     margin-top: 5%;
     /*align-items: center;*/
     /*justify-content: center;*/
@@ -347,7 +355,8 @@ button[type="submit"]:hover {
 
 
 .lista_questoes_index {
-    height: 80%;
+    margin-top: 15%;
+    height: 100%;
     overflow: auto;
     clear: both;
     overflow-y: scroll;
@@ -356,34 +365,30 @@ button[type="submit"]:hover {
 .lista_questoes_index ul {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
-.lista_questoes_index .question {
-    border-radius: 5px;
-    display: block;
-    margin: 5px 0px;
-    background-color: #ccc;
+.lista_questoes_index li {
+    margin-bottom: 5px;
 }
 
-.question:hover {
-    background-color: #95ab63;
-}
 
-.question a button {
-    border-radius: 5px;
+.lista_questoes_index button {
+    height: 60px;
+    font-size: large;
     width: 100%;
-    font-size: 15px;
-    padding: 10px;
-    background-color: #95ab63;
     border: none;
+    border-radius: 5px;
+    background-color: #95ab63;
 }
 
-.question a button:hover {
+
+.lista_questoes_index button:hover {
     background-color: #c1d19b;
 }
 
+
 /********************* Lista Questoes *********************************/
+
 .lista_questoes_container {
     width: 100%;
     height: 100%; /* altura total da página */
@@ -399,7 +404,6 @@ button[type="submit"]:hover {
     height: 20%;
 }
 
-/*lista_questoes*/
 
 .lista_questoes_user {
     height: 80%;
@@ -411,33 +415,29 @@ button[type="submit"]:hover {
 
 .lista_questoes_user ul {
     list-style: none;
+    margin: 0 50px;
     padding: 0;
-    margin: 0;
+
 }
 
-.lista_questoes_user .question_user {
-    border-radius: 5px;
-    display: block;
-    margin: 5px 0px;
-    background-color: #ccc;
+.lista_questoes_user ul li {
+    margin-bottom: 5px;
 }
 
-.question_user:hover {
-    background-color: #95ab63;
-}
-
-.question_user a button {
+.lista_questoes_user button {
+    height: 60px;
+    font-size: large;
+    border: none;
     border-radius: 5px;
     width: 100%;
-    font-size: 15px;
-    padding: 10px;
     background-color: #95ab63;
-    border: none;
 }
 
-.question_user a button:hover {
+
+.question_user:hover {
     background-color: #c1d19b;
 }
+
 
 /********************* Login form *************************************/
 /********************* Profile ****************************************/
@@ -466,6 +466,50 @@ button[type="submit"]:hover {
 }
 
 /********************* Sign up ****************************************/
+/***********************************detalhe_questao****************************************************************/
+
+.detalhe_questao_content {
+    width: 50%;
+    margin: 60px 25% 0 25%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.detalhe_questao_form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.detalhe_questao_form textarea {
+    max-width: 100%;
+}
+
+.info_questao p{
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.info_questao button {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #95ab63;
+    margin-top: 20px;
+    margin-right: 5px;
+}
+
+.info_questao button:hover {
+    background-color: #c1d19b;
+}
+
+.lista_resposta {
+    margin-top: 20px;
+}
 
 
-
+.detalhe_questao_form .apagar{
+    margin-top: 20px;
+}

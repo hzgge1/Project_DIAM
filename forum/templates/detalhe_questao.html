@@ -1,6 +1,56 @@
 {% extends 'index.html' %}
 
 {% block conteudo %}
-    <h1>{{ questao.questao_texto }}</h1>
+
+    <div class="detalhe_questao_content">
+        <div class="info_questao">
+
+            <h1>{{ questao.questao_texto }}</h1>
+            <p>
+                Clarify is a forum for all things related to coding. With a community of
+                                passionate coders, you can find resources on a wide range of programming
+                                languages and frameworks. Collaborate, ask questions, and share your knowledge
+                                with other developers. Join Clarify today and explore the exciting world of coding!
+                {{ questao.descricao }}
+            </p>
+            <button class="like">
+                Like
+                <!-- TODO icon like-->
+                {# TODO icon coração cheio quando deu like, vazio quando não deu #}
+            </button>
+            {% if request.user.is_authenticated and request.user == questao.user %}
+                <button class="apagar" formaction="{% url 'forum:apagar_questao' questao.id %}" class="apagar_questao">
+                    Apagar
+                </button>
+            {% endif %}
+        </div>
+
+
+        <div class="lista_resposta">
+            {% if list %}
+                <ul>
+                    {% for resposta in list %}
+                        <li class="question">
+                            {{ resposta.resposta_texto }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else  %}
+                Não há repostas!!!
+            {% endif %}
+
+        </div>
+
+        <form class="detalhe_questao_form" action="{% url 'forum:criar_questao' %}" method="post">
+            {% csrf_token %}
+
+
+            <label for="tags">Resposta</label><br>
+            <textarea class="text_area" type="text" name="descricao" rows="3" cols="50" required></textarea><br>
+
+            <button type="submit">Submeter Resposta</button>
+        </form>
+
+    </div>
 
 {% endblock %}
