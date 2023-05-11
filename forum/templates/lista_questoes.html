@@ -1,22 +1,22 @@
 {% extends 'index.html' %}
 
 {% block conteudo %}
-        <div class="lista_questoes_container">
-            <div class="title_container"><h2>Resultado Pesquisa</h2></div>
-            <div class="lista_questoes_index">
+    <div class="lista_questoes_container">
+        <div class="title_container"><h2>Resultado Pesquisa</h2></div>
+        <div class="lista_questoes_index">
             {% if list %}
                 <ul style="margin: 0 20px">
                     {% for questao in list %}
                         <li class="question"><a href="{% url 'forum:detalhe_questao' questao.id %}">
-                            <button style="padding: 50px 0">{{ questao.questao_texto }}</button>
+                            <button href="{% url 'forum:detalhe_questao' questao.id %}" style="padding: 50px 0">{{ questao.questao_texto }}</button>
                         </a></li>
                     {% endfor %}
                 </ul>
             {% else %}
                 A lista está vazia
             {% endif %}
-            </div>
         </div>
+    </div>
 
     {#    <div class="lista_questoes_list">#}
     {#        {% if list %}#}

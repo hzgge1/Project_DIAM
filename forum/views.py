@@ -127,7 +127,7 @@ def criar_questao(request):
                 request.user.utilizador.save()
         except(KeyError):
             return render(request, 'criar_questao.html', {'error_message': "Erro"})
-        return HttpResponseRedirect(reverse('forum:index'))
+        return HttpResponseRedirect(reverse('forum:questoes_user'))
     else:
         return render(request, 'criar_questao.html')
 

@@ -142,16 +142,16 @@ section {
   height: 100%;
   object-fit: cover;
 }
-.profile_picture img:hover{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
+/*.profile_picture img:hover{*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*    background-color: #fff;*/
+/*    padding: 10px;*/
+/*    border-radius: 5px;*/
+/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);*/
+/*}*/
 
 .button_list {
   width: 100%;
@@ -276,6 +276,7 @@ footer p{
 }
 
 .lista_questoes_index .question {
+  border-radius: 5px;
   display: block;
   margin: 5px 0px;
   background-color: #ccc;
@@ -284,14 +285,15 @@ footer p{
   background-color: #95ab63;
 }
 .question a button{
+  border-radius: 5px;
   width: 100%;
   font-size: 15px;
   padding: 10px;
-  background-color: #ccc;
+  background-color: #95ab63;
   border: none;
 }
 .question a button:hover{
-    background-color: #95ab63;
+    background-color: #c1d19b;
 }
 
 /* About Content */
@@ -397,42 +399,6 @@ button[type="submit"]:hover {
 
 /*lista_questoes ----------------------------------------------------------------------------------------------*/
 
-.lista_questoes_list {
-  margin-left: 5%;
-  width: 100%;
-  height: 100%;
-}
-
-.lista_questoes_list .lista_questoes_list_question {
-  display: block;
-  border-radius: 5px;
-  /*padding: 10px;*/
-  margin-bottom: 10px;
-  background-color: #95ab63;
-}
-
-.lista_questoes_list .lista_questoes_list_question button { /*ainda é necessário colocar scroll*/
-
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  display: block;
-  background-color: #95ab63;
-  color: #fff;
-  text-align: start;
-  text-decoration: none;
-  border-radius: 5px;
-  border: none;
-  font-size: large;
-}
-
-.lista_questoes_list .lista_questoes_list_question button:hover{
-  background-color: #e2f0d6;
-}
-
-/*.lista_questoes_list_question:hover {*/
-/*  background-color: #e2f0d6;*/
-/*}*/
 
 .lista_questoes_container {
   width: 100%;
@@ -440,6 +406,8 @@ button[type="submit"]:hover {
   display: flex;
   flex-direction: column;
 }
+
+
 
 .title_container {
   display: flex;
