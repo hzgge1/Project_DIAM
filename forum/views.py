@@ -12,7 +12,7 @@ from forum.models import Questao, Resposta, Like, Utilizador, Tag
 
 def index(request):
     latest_list = Questao.objects.order_by('questao_data')[:20]
-    return render(request, 'teste.html', {"list": latest_list})
+    return render(request, 'fods.html', {"list": latest_list})
 
 
 def about(request):

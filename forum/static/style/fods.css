@@ -1,17 +1,17 @@
-/* Corpo da Págna */
-*{
-  margin: 0;
-  padding: 0;
-}
-
+/* Define as propriedades do layout da página como grid */
 body {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
+  grid-template-columns: 1fr;
   height: 100vh;
+  margin: 0;
 }
 
+/* Define o estilo do header */
 header {
-  flex: 0 0 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Nav */
@@ -22,6 +22,7 @@ nav {
   align-items: center;
   justify-content: space-between; /* add this */
   height: 100%;
+  width: 100%;
 }
 
 nav img {
@@ -41,6 +42,11 @@ nav input[type="text"] {
   border: none;
   padding-left: 10px;
   box-sizing: border-box;
+}
+
+.button_nav_list{
+  display: inline-block;
+  margin: 0 5px;
 }
 
 nav button {
@@ -68,16 +74,14 @@ nav button:focus {
   box-shadow: 0 0 0 2px #95ab63;
 }
 
-/* Formato do Block Conteudo */
-.container {
+/* Conteudo */
+section {
+  background-color: #f2f2f2;
   display: flex;
   flex-wrap: wrap;
-  flex: 1 0 auto;
-  background-color: white;
-  height: 100%;
-  margin-bottom: 58px;
 }
 
+/* Profile Bar */
 .nav-perfil {
   flex: 0 0 25%; /* ocupa 30% da largura do contêiner */
   background-color: #ccc; /* exemplo de cor de fundo */
@@ -88,44 +92,6 @@ nav button:focus {
   height: 100%;
 }
 
-
-.main {
-  flex: 1; /* ocupa o restante da largura do contêiner */
-  background-color: #eee; /* exemplo de cor de fundo */
-  align-items:center
-}
-
-.main full-width {
-  flex-basis: 100%; /* ocupa 100% da largura do contêiner */
-  align-items:center
-}
-
-/* Footer */
-footer {
-  flex: 0 0 10%;
-  background-color: #95ab63; /* set the background color for the footer */
-  position: fixed; /* make the footer fixed */
-  bottom: 0; /* set the bottom position of the footer */
-  left: 0; /* set the left position of the footer */
-  width: 100%; /* set the width of the footer */
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.social-icons a {
-
-  display: inline-block;
-  margin: 0 10px;
-}
-.social-icons a i {
-  color: white;
-}
-
-/* Profile Menu */
 .nav_perfil h4{
   margin-bottom: 20px;
 }
@@ -177,58 +143,96 @@ li a:hover{
   background-color: #c1d19b;
 }
 
-
-
-/* Conteudo Index */
-.index_content {
-  font-size: large;
-  width: 95%; /* adjust as needed */
-  margin-left: 50px; /* adjust as needed */
-  overflow: hidden; /* clearfix to contain floated elements */
-  margin-top: 50px;
+/* Conteudo */
+.main {
+  flex: 1; /* ocupa o restante da largura do contêiner */
+  background-color: #eee; /* exemplo de cor de fundo */
+  align-items:center
 }
 
+.main full-width {
+  flex-basis: 100%; /* ocupa 100% da largura do contêiner */
+  align-items:center
+}
 
-.index_content p{
-  margin-top: 40px;
+/* Footer */
+footer {
+  background-color: #95ab63;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+footer p{
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+.social-icons a {
+  display: inline-block;
+  margin: 0 5px; /* reduz a margem horizontal */
+}
+
+.social-icons a i {
+  color: white;
+}
+
+/* Index Content */
+.index_content {
+  font-size: large;
+  width: 100%%; /* adjust as needed */
+  overflow: hidden; /* clearfix to contain floated elements */
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .left {
-  width: 40%; /* adjust as needed */
-  float: left;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-left: 25px;
+}
+
+.left div {
+  height: 50%;
+  width: 100%;
+}
+
+.right {
+  width: 30%;
+  height: 100%;
+}
+
+.right img {
+  display: block;
+  max-width: 50%%;
+  height: auto;
+}
+
+.texto_introducao{
   align-items: center;
   justify-content: center;
   text-align: center;
 }
 
-.right {
-  width: 30%; /* adjust as needed */
-  float: right;
-  margin-top: 10px;
-}
 
-.right img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-.list {
-  width: 95%;
-  height: 150px;
+.lista_questoes_index {
   overflow: auto;
   clear: both;
   overflow-y: scroll;
-  margin-bottom: 10px;
 }
 
-.list ul {
+.lista_questoes_index ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.list .question {
+.lista_questoes_index .question {
   display: block;
   padding: 10px;
   margin: 5px;
@@ -243,33 +247,40 @@ li a:hover{
   margin-bottom: 10px;
 }
 
-
 .question:hover {
   background-color: #95ab63;
 }
 
-
-/* Página About */
+/* About Content */
 .about_container {
+  width: 100%;
+  height: 100%; /* altura total da página */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  /*height: 100vh; !* Set the height of the container to the full viewport height *!*/
 }
 
-.clarify_logo img {
-  margin-left: 44%;
-  margin-right: 56%;
-  margin-top: 5%;
-  width: 200px; /* Set the desired width */
+.about_clarify_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
+
+.about_clarify_logo img {
+  width: 200px;
+}
+
+.about_text_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
 }
 
 .about_text_container p {
   font-size: 1.2em; /* Set the desired font size */
   margin-top: 40px;
-  margin-left: 120px;
-  width: 90%;
-  text-align: justify;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
 }
