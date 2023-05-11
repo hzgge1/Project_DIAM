@@ -172,14 +172,19 @@ def questoes_user(request):
 def detalhe_questao(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
     if request.method == 'POST':
-        try:
-            resposta_texto = request.POST['resposta_texto']
-            Resposta.objects.create(questao=questao, user=request.user, resposta_texto=resposta_texto,
+        if request.user.is_autheticated:
+            try:
+                resposta_texto = request.POST['resposta_texto']
+                Resposta.objects.create(questao=questao, user=request.user, resposta_texto=resposta_texto,
                                     resposta_data=timezone.now())
-        except(KeyError):
-            return render(request, "detalhe_qeustao.html", {'questao': questao, "list": list_respostas, "erro_message": "Erro"})
-        list_respostas = Resposta.objects.filter(questao=questao)
-        return render(request, 'detalhe_questao.html', {'questao': questao, "list": list_respostas})
+            except(KeyError):
+                list_respostas = Resposta.objects.filter(questao=questao)
+                return render(request, "detalhe_qeustao.html", {'questao': questao, "list": list_respostas, "erro_message": "Erro"})
+            list_respostas = Resposta.objects.filter(questao=questao)
+            return render(request, 'detalhe_questao.html', {'questao': questao, "list": list_respostas})
+        else:
+            list_respostas = Resposta.objects.filter(Questao=questao)
+            return render(request, 'detalhe_questao.html', {'questao':questao, 'list':list_respostas, 'error_message':"Login necessário"})
     else:
         list_respostas = Resposta.objects.filter(questao=questao)
         return render(request, 'detalhe_questao.html', {'questao': questao, "list": list_respostas})
