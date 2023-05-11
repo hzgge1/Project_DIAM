@@ -16,7 +16,7 @@ body {
   margin: 0;
 }
 
-/* Define o estilo do header */
+/* Define o estilo do header ----------------------------------------------*/
 header {
   display: flex;
   justify-content: center;
