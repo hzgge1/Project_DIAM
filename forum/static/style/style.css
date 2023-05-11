@@ -1,4 +1,10 @@
 /* Define as propriedades do layout da página como grid */
+*{
+  padding: 0;
+  margin: 0;
+  /*falta o tipo de letra*/
+}
+
 *:focus{
   outline: none; /* tira  */
 }
