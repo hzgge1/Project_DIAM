@@ -1,21 +1,33 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}" />
-
 <!DOCTYPE html>
 <html>
     <head>
       <title>Clarify</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     </head>
+
+    {% block error_message %}
+    {% if error_message %}
+        <script>
+            alert('{{ error_message }}');
+        </script>
+    {% endif %}
+    {% endblock %}
+
     <body>
-    {% block header %}
+        {% block header %}
         <header>
             <nav>
                 <a href="{% url 'forum:index' %}"><img src="{% static 'images/clarify_logo.png' %}" alt="Logo"></a>
                 {% block search_bar %}
-                <input type="text" placeholder="Search">
+                    <form class="search-form" action="{% url 'forum:pesquisa_questoes' %}" method="post" >
+                    {% csrf_token %}
+                        <input type="text" name="tags" placeholder="Search Tags .." />
+                        <input type="submit" value="🔍" />
+                    </form>
                 {% endblock %}
-                <div class="button">
+                <div class="button_nav_list">
                     <a href="{% url 'forum:about' %}"><button>About</button></a>
                     {% if user.is_authenticated%}
                     <a href="{% url 'forum:logoutView' %}"><button>Logout</button></a>
@@ -26,17 +38,17 @@
                 </div>
             </nav>
         </header>
-    {% endblock %}
-    {% block main %}
-        <main>
-            {% block profile_menu %}
-            {% if user.is_authenticated %}
-            <aside class="profile_menu">
+        {% endblock %}
+
+        {% block main %}
+        <section>
+            {% if request.user.is_authenticated %}
+            <div class="nav-perfil">
                 <div class="profile_picture">
-                    <img src="{% static 'images/profile.jpg' %}" alt="Profile Picture">
+                    <img id="foto_perfil" src="{% static user.utilizador.imageURL %}" alt="Profile Picture">
                 </div>
                 {% if not request.user.is_superuser %}
-                <h4>Número de Questoes criadas: {{request.user.utilizador.numeroQuestoes}}</h4>
+                <h4>Número de Questoes criadas: {{request.user.utilizador.numeroQuestoes}} / 10</h4>
                 {% endif %}
                 <ul class="button_list">
                     <li>
@@ -49,50 +61,54 @@
                         <a href="{% url 'forum:criar_questao' %}" class="button">Criar Questão</a>
                     </li>
                 </ul>
-            </aside>
+            </div>
             {% endif %}
-            {% endblock %}
-
-            <section>
-            {% block right_content %}
-                 <div class="index_content">
+            <div class="main{% if not request.user.is_authenticated %} full-width{% endif %}">
+                {% block conteudo %}
+                <div class="index_content">
                     <div class="left">
-                        <h3>"Connecting coders, clarifying code."</h3>
-                        <p>Clarify is a forum for all things related to coding. With a community of passionate coders, you can find resources on a wide range of programming languages and frameworks. Collaborate, ask questions, and share your knowledge with other developers. Join Clarify today and explore the exciting world of coding!</p>
+                        <div class="texto_introducao">
+                            <h3>"Connecting coders, clarifying code."</h3>
+                            <p>Clarify is a forum for all things related to coding. With a community of passionate coders, you can find resources on a wide range of programming languages and frameworks. Collaborate, ask questions, and share your knowledge with other developers. Join Clarify today and explore the exciting world of coding!</p>
+                        </div>
+                        <div class="lista_questoes_index">
+                            {% if list %}
+                            <ul>
+                                {% for questao in list %}
+                                <li class="question"><a href="{% url 'forum:detalhe_questao' questao.id %}"><button>{{ questao.questao_texto }}</button></a></li>
+                                {% endfor %}
+                            </ul>
+                            {% else  %}
+                            A lista está vazia
+                            {% endif %}
+                        </div>
                     </div>
                     <div class="right">
                         <img src="{% static 'images/model.png' %}" alt="">
                     </div>
-                    <div class="list">
-                        {% if list %}
-                        <ul>
-                            {% for questao in list %}
-                            <li class="question"><a href="{% url 'forum:detalhe_questao' questao.id %}">{{ questao.questao_texto }}</a></li>
-                            {% endfor %}
-                        </ul>
-                        {% else  %}
-                        A lista está vazia
-                        {% endif %}
-                    </div>
                 </div>
             {% endblock %}
-            </section>
-        </main>
-    {% endblock %}
+            </div>
+        </section>
+        {% endblock %}
 
-    {% block footer %}
+        {% block footer %}
         <footer>
-            <div class="footer">
-                <p>1980 Dahlia St Denver, CO 80220, EUA</p>
-                <p>39.747371, -104.931689</p>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/" ><i class="fab fa-facebook"></i></a>
-                     <a href="https://www.youtube.com/" ><i class="fab fa-youtube"></i></a>
-                    <a href="https://twitter.com/" ><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com/" ><i class="fab fa-linkedin"></i></a>
-                </div>
+            <p>1980 Dahlia St Denver, CO 80220, EUA</p>
+            <p>39.747371, -104.931689</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
             </div>
         </footer>
-    {% endblock %}
+        {% endblock %}
+
+        {#java script#}
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="{% static 'script/functions.js' %}"></script>
+
     </body>
+
 </html>

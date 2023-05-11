@@ -1,19 +1,35 @@
 {% extends 'index.html' %}
 
-{% block right_content %}
+{% block conteudo %}
+        <div class="lista_questoes_container">
+            <div class="title_container"><h2>Resultado Pesquisa</h2></div>
+            <div class="lista_questoes_index">
+            {% if list %}
+                <ul style="margin: 0 20px">
+                    {% for questao in list %}
+                        <li class="question"><a href="{% url 'forum:detalhe_questao' questao.id %}">
+                            <button style="padding: 50px 0">{{ questao.questao_texto }}</button>
+                        </a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                A lista está vazia
+            {% endif %}
+            </div>
+        </div>
 
-    <div class="lista_questoes_list">
-        {% if list %}
-            <ul>
-                {% for questao in list %}
-                    <li class="lista_questoes_list_question">
-                        <button href="{% url 'forum:detalhe_questao' questao.id %}" style="color: black">
-                            {{ questao.questao_texto }}</button></li>
-                {% endfor %}
-            </ul>
-        {% else  %}
-            A lista está vazia
-        {% endif %}
-    </div>
+    {#    <div class="lista_questoes_list">#}
+    {#        {% if list %}#}
+    {#            <ul>#}
+    {#                {% for questao in list %}#}
+    {#                    <li class="lista_questoes_list_question">#}
+    {#                        <button href="{% url 'forum:detalhe_questao' questao.id %}" style="color: black">#}
+    {#                            {{ questao.questao_texto }}</button></li>#}
+    {#                {% endfor %}#}
+    {#            </ul>#}
+    {#        {% else  %}#}
+    {#            A lista está vazia#}
+    {#        {% endif %}#}
+    {#    </div>#}
 
 {% endblock %}

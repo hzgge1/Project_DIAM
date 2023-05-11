@@ -1,39 +1,14 @@
 {% extends 'index.html' %}
 
-{% block right_content %}
+{% block conteudo %}
 
     <div class="profile_content">
         <div class="profile_text">
-            <h2>Gervasio Ludovico</h2>
-            <p>Gervasio Ludovico is a talented Python developer with a passion for solving complex problems
-                and building efficient software solutions. At only 21 years old, Gervasio has already gained a wealth
-                of experience in the field, having worked on a variety of projects ranging from web applications
-                to machine learning algorithms.
-                Gervasio's expertise lies in his ability to develop clean and well-structured code that is easy
-                to maintain and extend. He is proficient in a range of Python frameworks and libraries, including
-                Django, Flask, and NumPy, and is constantly exploring new technologies and tools to improve his skills.
-                In addition to his technical abilities, Gervasio is also an excellent communicator and team player,
-                with a strong work ethic and a commitment to delivering high-quality results. He is always eager to
-                learn and collaborate with others, and is passionate about using technology to make a positive impact
-                on the world.
-                Overall, Gervasio is a highly skilled and motivated Python developer who is sure to make a valuable
-                contribution to any team or project he works on.</p>
-            <h4>Estilo de musica favorito: </h4>
-            <h4>Em aprendizagem: </h4>
+            <h2>Nome: </h2><p>      {{ user.first_name }} {{ user.last_name }}</p>
+            <h2>Descrição: </h2><p>      {{ user.utilizador.descricao }}</p>
+
 
         </div>
-
-{#        <div class="list">#}
-{#            {% if list %}#}
-{#                <ul>#}
-{#                    {% for questao in list %}#}
-{#                        <li class="question"><a href="{% url 'forum:detalhe_questao' questao.id %}">{{ questao.questao_texto }}</a></li>#}
-{#                    {% endfor %}#}
-{#                </ul>#}
-{#            {% else  %}#}
-{#                A lista está vazia#}
-{#            {% endif %}#}
-{#        </div>#}
     </div>
 
 
