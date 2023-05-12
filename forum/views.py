@@ -7,6 +7,12 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
+# react
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework import status
+from .serializers import *
+
 from forum.models import Questao, Resposta, Like, Utilizador, Tag
 
 
@@ -224,3 +230,20 @@ def like_questao(request, questao_id):
     except Like.DoesNotExist:
         Like.objects.create(user=request.user, questao=questao)
     return HttpResponseRedirect(reverse("forum:detalhe_questao", args=questao_id))
+
+# react
+
+@api_view(['GET', 'POST']) #(3)
+def questoes_lista(request):
+    if request.method == 'GET': #(4)
+        questoes = Questao.objects.all()
+        serializerQ = QuestaoSerializer(questoes, context={'request':
+                                                           request}, many=True)
+        return Response(serializerQ.data)
+    elif request.method == 'POST': #(4)
+        serializer = QuestaoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_201_CREATED)
+        return Response(serializer.errors,
+                    status=status.HTTP_400_BAD_REQUEST)

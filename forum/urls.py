@@ -20,4 +20,7 @@ urlpatterns = [
     path("<int:questao_id>/detalhe_questao", views.detalhe_questao, name='detalhe_questao'), # pagina detalhe questao
     path("<int:questao_id>/apagar_questao", views.apagar_questao, name='apagar_questao'), # funcao apagar questao
     path("<int:questao_id>/like_questao", views.like_questao, name='like_questao'), # funcao da like a questao
+
+    # react
+    path('api/questoes/', views.questoes_lista),
 ]

@@ -19,7 +19,7 @@ class Questao(models.Model):
 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    questao = models.ForeignKey(Questao, on_delete=models.SET_NULL, null=True)
+    questao = models.ForeignKey(Questao, on_delete=models.CASCADE, null=True)
 class Resposta(models.Model):
     # se eliminar a questao elimina as respostas
     questao = models.ForeignKey(Questao, on_delete=models.CASCADE)
