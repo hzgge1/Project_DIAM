@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block search_bar %}
+
+{% endblock %}
+
+{% block conteudo %}
+
+    <div class="editar_foto_conteudo">
+        <form method="post" enctype="multipart/form-data" action="{% url "forum:editar_foto" %}">
+        {% csrf_token %}
+            <h2>Editar Foto</h2>
+            <input type="file" name="foto" accept="image/*" />
+            <button type="submit" >Editar Foto</button>
+        </form>
+    </div>
+    </script>
+{% endblock %}

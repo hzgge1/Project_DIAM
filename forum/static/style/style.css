@@ -515,7 +515,7 @@ footer p {
     background-color: #95ab63;
 }
 
-/********************* Editar foto ************************************/
+/********************* Editar Foto ************************************/
 .editar_foto_conteudo{
     width: 50%;
     margin: 20px 25%;
@@ -531,17 +531,25 @@ footer p {
 
 .editar_foto_conteudo form h2{
     text-align: center;
+    margin: 10px 0;
 }
 
 
-.editar_foto_conteudo form button[type="submit"] {
+.editar_foto_conteudo form button[type="submit"]{
     background-color: #95ab63;
     color: #fff;
     border: none;
     border-radius: 5px;
+    margin: 10px 0;
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+.editar_foto_conteudo form input[type="file"] {
+    padding: 10px 20px;
+    background-color: #95ab63;
+
 }
 
 .editar_foto_conteudo form button[type="submit"]:hover {
@@ -550,4 +558,12 @@ footer p {
 
 .editar_foto_conteudo form button[type="submit"]:active{
     background-color: #95ab63;
+}
+
+.lista_resposta {
+    margin-top: 20px;
+}
+
+.detalhe_questao_form .apagar{
+    margin-top: 20px;
 }

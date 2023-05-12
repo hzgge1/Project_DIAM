@@ -86,20 +86,19 @@ def editar_perfil(request):
     else:
         return render(request, "editar_perfil.html")
 
-
+@login_required(login_url='/forum/login')
 def editar_foto(request):
     if request.method == 'POST':
-        if request.FILES['image']:
-            myfile = request.FILES['image']
+        if request.FILES['foto']:
+            myfile = request.FILES['foto']
             fs = FileSystemStorage()
-            filename = fs.save("images/" + request.user.username + ".png", myfile)
+            filename = fs.save("forum/static/fotos/" + request.user.username + ".png", myfile)
             uploaded_file_url = fs.url(filename)
-            request.user.utilizador.imageURL = filename[6:]
+            request.user.utilizador.imageURL = filename[13:]
             request.user.utilizador.save()
-            HttpResponseRedirect(reverse("forum:profile"))
+            return HttpResponseRedirect(reverse("forum:profile"))
     else:
         return render(request,"editar_foto.html")
-
 
 @login_required(login_url='/forum/login')
 def profile(request):
