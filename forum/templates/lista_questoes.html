@@ -9,7 +9,7 @@
                     {% for questao in list %}
                         <li class="question_user">
                             <button formaction="{% url 'forum:detalhe_questao' questao.id %}">
-                                {{ questao.questao_texto }}</button>
+                                {{ questao.questao_titulo }}</button>
                         </li>
                     {% endfor %}
                 </ul>
@@ -18,19 +18,5 @@
             {% endif %}
         </div>
     </div>
-
-    {#    <div class="lista_questoes_list">#}
-    {#        {% if list %}#}
-    {#            <ul>#}
-    {#                {% for questao in list %}#}
-    {#                    <li class="lista_questoes_list_question">#}
-    {#                        <button href="{% url 'forum:detalhe_questao' questao.id %}" style="color: black">#}
-    {#                            {{ questao.questao_texto }}</button></li>#}
-    {#                {% endfor %}#}
-    {#            </ul>#}
-    {#        {% else  %}#}
-    {#            A lista está vazia#}
-    {#        {% endif %}#}
-    {#    </div>#}
 
 {% endblock %}

@@ -79,11 +79,11 @@
                             <ul>
                                 {% for questao in list %}
                                 <li class="question"><button formaction="{% url 'forum:detalhe_questao' questao.id %}">
-                                    {{ questao.questao_texto }}</button></li>
+                                    {{ questao.questao_titulo }}</button></li>
                                 {% endfor %}
                             </ul>
                             {% else  %}
-                            A lista está vazia
+                                Não há respostas
                             {% endif %}
                         </div>
                     </div>

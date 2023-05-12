@@ -5,13 +5,9 @@
     <div class="detalhe_questao_content">
         <div class="info_questao">
 
-            <h1>{{ questao.questao_texto }} {{ questao.numero_likes }} likes</h1>
+            <h1>{{ questao.questao_titulo }} ({{ questao.numero_likes }} likes)</h1>
             <p>
-                Clarify is a forum for all things related to coding. With a community of
-                                passionate coders, you can find resources on a wide range of programming
-                                languages and frameworks. Collaborate, ask questions, and share your knowledge
-                                with other developers. Join Clarify today and explore the exciting world of coding!
-                {{ questao.descricao }}
+                {{ questao.questao_descricao }}
             </p>
             <button class="like">
                 Like
