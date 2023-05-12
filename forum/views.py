@@ -11,7 +11,7 @@ from forum.models import Questao, Resposta, Like, Utilizador, Tag
 
 
 def index(request):
-    latest_list = Questao.objects.order_by('questao_data')[:20]
+    latest_list = Questao.objects.order_by('-questao_data')[:20]
     return render(request, 'index.html', {"list": latest_list})
 
 
@@ -52,6 +52,13 @@ def sign_up(request):
             password = request.POST['password']
             email = request.POST['email']
             try:
+                if User.objects.filter(username=username).exists():
+                    return render(request, "sign_up.html",
+                                  {'error_message': 'Erro: Nome de usuário já está em uso'})
+                if User.objects.filter(email=email).exists():
+                    return render(request, "sign_up.html",
+                                  {'error_message': 'Erro: Endereço de e-mail já está em uso'})
+
                 user = User.objects.create_user(username, email, password, first_name=firstname, last_name=lastname)
                 utilizador = Utilizador(user=user, imageURL="images/default.png", descricao="Sem Descrição.")
                 utilizador.save()
@@ -73,6 +80,13 @@ def editar_perfil(request):
             username = request.POST['username']
             email = request.POST['email']
             descricao = request.POST['descricao']
+
+            if User.objects.exclude(pk=request.user.pk).filter(username=username).exists():
+                return render(request, "editar_perfil.html", {'error_message': 'Erro: Nome de usuário já está em uso'})
+            if User.objects.exclude(pk=request.user.pk).filter(email=email).exists():
+                return render(request, "editar_perfil.html",
+                              {'error_message': 'Erro: Endereço de e-mail já está em uso'})
+
             request.user.first_name = firstname
             request.user.last_name = lastname
             request.user.username = username
@@ -86,17 +100,21 @@ def editar_perfil(request):
     else:
         return render(request, "editar_perfil.html")
 
-
-def upload_image(request):
-    if request.FILES['image']:
-        myfile = request.FILES['image']
-        fs = FileSystemStorage()
-        filename = fs.save("images/" + request.user.username + ".png", myfile)
-        uploaded_file_url = fs.url(filename)
-        request.user.utilizador.imageURL = filename[6:]
-        request.user.utilizador.save()
-        return True
-    return False
+@login_required(login_url='/forum/login')
+def editar_foto_perfil(request):
+    if request.method == 'POST':
+        try:
+            myfile = request.FILES['image']
+            fs = FileSystemStorage()
+            filename = fs.save("images/" + request.user.username + ".png", myfile)
+            uploaded_file_url = fs.url(filename)
+            request.user.utilizador.imageURL = filename[6:]
+            request.user.utilizador.save()
+            return HttpResponseRedirect(reverse('forum:profile'))
+        except KeyError:
+            return render(request, 'editar_foto_perfil', {'error_message':"Erro. Tente Novamente"})
+    else:
+        return render(request, 'editar_foto_perfil.html')
 
 
 @login_required(login_url='/forum/login')
