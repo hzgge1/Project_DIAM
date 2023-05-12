@@ -107,12 +107,11 @@ def editar_foto_perfil(request):
             myfile = request.FILES['foto']
             fs = FileSystemStorage()
             filename = fs.save("forum/static/fotos/" + request.user.username + ".png", myfile)
-            uploaded_file_url = fs.url(filename)
             request.user.utilizador.imageURL = filename[13:]
             request.user.utilizador.save()
             return HttpResponseRedirect(reverse('forum:profile'))
         except KeyError:
-            return render(request, 'editar_foto_perfil', {'error_message':"Erro. Tente Novamente"})
+            return render(request, 'editar_foto_perfil.html', {'error_message':"Erro. Tente Novamente"})
     else:
         return render(request, 'editar_foto_perfil.html')
 
@@ -126,9 +125,10 @@ def profile(request):
 def criar_questao(request):
     if request.method == 'POST':
         try:
-            texto_questao = request.POST['textoquestao']
+            questao_titulo = request.POST['questaotitulo']
+            questao_descricao = request.POST['questaodescricao']
             tags = request.POST['tags']
-            questao = Questao.objects.create(questao_texto=texto_questao, questao_data=timezone.now(),
+            questao = Questao.objects.create(questao_titulo=questao_titulo, questao_descricao=questao_descricao, questao_data=timezone.now(),
                                              user=request.user)
             for tag in tags.split():
                 aux = Tag.objects.filter(tag_texto=tag)

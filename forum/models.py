@@ -11,7 +11,8 @@ class Utilizador(models.Model):
 # Create your models here.
 class Questao(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    questao_texto = models.CharField(max_length=200)
+    questao_titulo = models.CharField(max_length=100, default="")
+    questao_descricao = models.CharField(max_length=500, default="")
     questao_data = models.DateTimeField('data da publicacao')
     tags = models.ManyToManyField('Tag', related_name='questao')
     numero_likes = models.IntegerField(default=0)

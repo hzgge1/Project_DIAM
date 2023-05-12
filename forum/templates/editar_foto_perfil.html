@@ -7,7 +7,7 @@
 {% block conteudo %}
 
     <div class="editar_foto_conteudo">
-        <form method="post" enctype="multipart/form-data" action="{% url "forum:editar_foto" %}">
+        <form method="post" enctype="multipart/form-data" action="{% url "forum:editar_foto_perfil" %}">
         {% csrf_token %}
             <h2>Editar Foto</h2>
             <input type="file" name="foto" accept="image/*" />

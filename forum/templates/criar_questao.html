@@ -11,9 +11,9 @@
         <form class="criarquestao_form" action="{% url 'forum:criar_questao' %}" method="post">
             {% csrf_token %}
 
-            <input class="titulo" type="text" placeholder="Título"/><br>
+            <input class="titulo" type="text" name="questaotitulo" placeholder="Título"/><br>
 
-            <textarea placeholder="Descrição" id="description" name="textoquestao" rows="15" cols="50"></textarea><br>
+            <textarea placeholder="Descrição" id="description" name="questaodescricao" rows="15" cols="50"></textarea><br>
 
 
             <input placeholder="Etiqueta" type="text" id="tags" name="tags" required /><br>
