@@ -68,14 +68,18 @@
                 <div class="index_content">
                     <div class="left">
                         <div class="texto_introducao">
-                            <h3>"Connecting coders, clarifying code."</h3>
-                            <p>Clarify is a forum for all things related to coding. With a community of passionate coders, you can find resources on a wide range of programming languages and frameworks. Collaborate, ask questions, and share your knowledge with other developers. Join Clarify today and explore the exciting world of coding!</p>
+                            <h2>"Connecting coders, clarifying code."</h2>
+                            <p>Clarify is a forum for all things related to coding. With a community of
+                                passionate coders, you can find resources on a wide range of programming
+                                languages and frameworks. Collaborate, ask questions, and share your knowledge
+                                with other developers. Join Clarify today and explore the exciting world of coding!</p>
                         </div>
                         <div class="lista_questoes_index">
                             {% if list %}
                             <ul>
                                 {% for questao in list %}
-                                <li class="question"><a href="{% url 'forum:detalhe_questao' questao.id %}"><button>{{ questao.questao_texto }}</button></a></li>
+                                <li class="question"><button formaction="{% url 'forum:detalhe_questao' questao.id %}">
+                                    {{ questao.questao_texto }}</button></li>
                                 {% endfor %}
                             </ul>
                             {% else  %}
