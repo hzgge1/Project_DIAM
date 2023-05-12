@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 
 {% block conteudo %}
-    <div class="criarquestao_content">
+    <div class="signup_content">
         <form action="{% url 'forum:sign_up' %}" method="post">
             {% csrf_token %}
             <h1 class="form_title">Sign Up</h1>
