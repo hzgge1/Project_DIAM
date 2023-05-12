@@ -1,7 +1,10 @@
 /***** Geral *****/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
 * {
     padding: 0;
     margin: 0;
+    font-family: 'Poppins', sans-serif;
     /*falta o tipo de letra*/
 }
 
@@ -36,10 +39,12 @@ header nav {
 
 /****** Nav-Logo ******/
 header nav img {
+    background-color: white;
+    border-radius: 50%;
     margin-left: 30px;
     height: 70px;
     width: 70px;
-    padding: 5px;
+    padding: 2px;
 }
 
 /****** Nav-Seacr bar ******/
@@ -239,10 +244,11 @@ footer p {
 }
 
 .about_clarify_logo {
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50%;
+    height: 30%;
 }
 
 .about_clarify_logo img {
@@ -258,20 +264,26 @@ footer p {
 
 .about_text_container p {
     font-size: 1.2em; /* Set the desired font size */
-    margin-top: 40px;
-    margin-left: 10px;
-    margin-right: 10px;
-    text-align: center;
+    /*margin-top: 20px;*/
+    width: 80%;
+    text-align: justify;
 }
 
 /********************* Criar Questao **********************************/
 .criarquestao_content {
+    text-align: center;
     width: 50%;
-    margin: auto;
+    margin: 40px 25% 0 25%;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
+
+.criarquestao_form .titulo {
+    margin-top: 40px;
+}
+
+/*comentário*/
 
 .criarquestao_form {
     display: flex;
@@ -280,16 +292,25 @@ footer p {
 
 .criarquestao_form label {
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .criarquestao_form textarea,
 .criarquestao_form input {
+    max-width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
     border-radius: 5px;
-    border: none;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    border: 1px solid black;
+    /*box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);*/
+}
+
+.criarquestao_form textarea {
+    max-height: 200px;
+}
+
+#titulo {
+    margin-bottom: 20px;
 }
 
 .criarquestao_form button[type="submit"] {
@@ -300,13 +321,13 @@ footer p {
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-top: 20px;
 }
 
 .criarquestao_form button[type="submit"]:hover {
     background-color: #e2f0d6;
 }
 
-/********************* Detalhe Questao ********************************/
 /********************* Index ******************************************/
 .index_content {
     font-size: large;
@@ -441,6 +462,53 @@ footer p {
 
 
 /********************* Login form *************************************/
+.login_content {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    margin: 80px 35% 0 35%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.login_content .control {
+    margin-top: 20px;
+}
+
+.login_content .control button {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #95ab63;
+}
+
+.login_content .control button:hover {
+    background-color: #b2be97;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /********************* Profile ****************************************/
 .profile_content {
     font-size: large;
@@ -468,6 +536,7 @@ footer p {
 
 /********************* Sign up ****************************************/
 .signup_content {
+    text-align: center;
     width: 30%;
     display: flex;
     justify-content: center;
@@ -481,6 +550,10 @@ footer p {
     margin-top: 20px;
 }
 
+.signup_content .form_title {
+    margin-bottom: 30px;
+}
+
 .signup_content .control button {
     color: white;
     border: none;
@@ -491,6 +564,12 @@ footer p {
 
 .signup_content .control button:hover {
     background-color: #b2be97;
+}
+
+.signup_content .control input {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 
@@ -516,7 +595,7 @@ footer p {
 /********************* Editar perfil **********************************/
 .editar_perfil_conteudo{
     width: 50%;
-    margin: 20px 25%;
+    margin: 80px 25% 0 25%;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -528,6 +607,7 @@ footer p {
 }
 .editar_perfil_conteudo form h2{
     text-align: center;
+    margin-bottom: 35px;
 }
 
 .editar_perfil_conteudo form label {
@@ -538,9 +618,13 @@ footer p {
 .editar_perfil_conteudo form input {
     padding: 10px;
     border-radius: 5px;
-    border: none;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-    margin-bottom: 10px;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+.editar_perfil_conteudo form textarea {
+    max-width: 100%;
+    max-height: 200px;
 }
 
 .editar_perfil_conteudo form button[type="submit"] {
@@ -551,10 +635,11 @@ footer p {
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-top: 40px;
 }
 
 .editar_perfil_conteudo form button[type="submit"]:hover {
-    background-color: #e2f0d6;
+    background-color: #b2be97;
 }
 
 .editar_perfil_conteudo form button[type="submit"]:active{
@@ -580,11 +665,17 @@ footer p {
 
 .detalhe_questao_form textarea {
     max-width: 100%;
+    max-height: 180px;
 }
 
 .info_questao p{
+    text-align: justify;
     font-size: 16px;
+    height: 80px;
     margin-top: 20px;
+      overflow: auto;
+    clear: both;
+    overflow-y: scroll;
 }
 
 
@@ -604,9 +695,42 @@ footer p {
 
 .lista_resposta {
     margin-top: 20px;
+
+}
+
+.lista_resposta label {
+    font-weight: bold;
+}
+
+.lista_resposta ul {
+    margin-top: 10px;
+    height: 100px;
+      overflow: auto;
+    clear: both;
+    overflow-y: scroll;
+}
+
+.lista_resposta li {
+    /*font-weight: bold;*/
+    color: white;
+    list-style: none;
+    background-color: #95ab63;
+    border-radius: 5px;
+    padding: 10px;
+
 }
 
 
-.detalhe_questao_form .apagar{
+.detalhe_questao_form button{
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #95ab63;
     margin-top: 20px;
+    margin-right: 5px;
+}
+
+.detalhe_questao_form button:hover{
+    background-color: #b2be97;
 }

@@ -7,16 +7,18 @@
 
     <div class="criarquestao_content">
 
-        <h2>Create a new post</h2>
+        <h2>Criar Questão</h2>
         <form class="criarquestao_form" action="{% url 'forum:criar_questao' %}" method="post">
             {% csrf_token %}
-            <label for="description">Description:</label><br>
-            <textarea id="description" name="textoquestao" rows="5" cols="50"></textarea><br>
 
-            <label for="tags">Tags:</label><br>
-            <input type="text" id="tags" name="tags" required /><br>
+            <input class="titulo" type="text" placeholder="Título"/><br>
 
-            <button type="submit">Criar questão</button>
+            <textarea placeholder="Descrição" id="description" name="textoquestao" rows="15" cols="50"></textarea><br>
+
+
+            <input placeholder="Etiqueta" type="text" id="tags" name="tags" required /><br>
+
+            <button type="submit">Criar Questão</button>
         </form>
 
     </div>

@@ -2,17 +2,17 @@
 
 {% block conteudo %}
 
-    <div class="criarquestao_content">
+    <div class="login_content">
 
         <form action="{% url 'forum:loginView' %}" method="post">
             {% csrf_token %}
             <h1 class="form_title">Login</h1>
             <div class="control">
-                <label>Username</label>
+
                 <input type="text" placeholder="Enter Username" name="username" required>
             </div>
             <div class="control">
-                <label>Password</label>
+
                 <input type="password" placeholder="Enter Password" name="password" required>
             </div>
             <div class="control">
