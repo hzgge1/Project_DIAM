@@ -104,11 +104,11 @@ def editar_perfil(request):
 def editar_foto_perfil(request):
     if request.method == 'POST':
         try:
-            myfile = request.FILES['image']
+            myfile = request.FILES['foto']
             fs = FileSystemStorage()
-            filename = fs.save("images/" + request.user.username + ".png", myfile)
+            filename = fs.save("forum/static/fotos/" + request.user.username + ".png", myfile)
             uploaded_file_url = fs.url(filename)
-            request.user.utilizador.imageURL = filename[6:]
+            request.user.utilizador.imageURL = filename[13:]
             request.user.utilizador.save()
             return HttpResponseRedirect(reverse('forum:profile'))
         except KeyError:
