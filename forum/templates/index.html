@@ -57,9 +57,11 @@
                     <li>
                         <a href="{% url 'forum:questoes_user' %}" class="button">Questões</a>
                     </li>
+                    {% if request.user.is_superuser or request.user.utilizador.numeroQuestoes < 10 %}
                     <li>
                         <a href="{% url 'forum:criar_questao' %}" class="button">Criar Questão</a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
             {% endif %}
@@ -78,12 +80,12 @@
                             {% if list %}
                             <ul>
                                 {% for questao in list %}
-                                <li class="question"><button formaction="{% url 'forum:detalhe_questao' questao.id %}">
-                                    {{ questao.questao_titulo }}</button></li>
+                                <li class="question"><form><button type="submit" formaction="{% url 'forum:detalhe_questao' questao.id %}">
+                                    {{ questao.questao_titulo }}</button></form></li>
                                 {% endfor %}
                             </ul>
                             {% else  %}
-                                Não há respostas
+                                Não há perguntas.
                             {% endif %}
                         </div>
                     </div>

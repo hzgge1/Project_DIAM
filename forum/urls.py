@@ -22,5 +22,5 @@ urlpatterns = [
     path("<int:questao_id>/like_questao", views.like_questao, name='like_questao'), # funcao da like a questao
 
     # react
-    path('api/questoes/', views.questoes_lista),
+    # path('api/questoes/', views.questoes_lista),
 ]

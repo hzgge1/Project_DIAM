@@ -8,8 +8,8 @@
                 <ul>
                     {% for questao in list %}
                         <li class="question_user">
-                            <button formaction="{% url 'forum:detalhe_questao' questao.id %}">
-                                {{ questao.questao_titulo }}</button>
+                            <form><button type="submit" formaction="{% url 'forum:detalhe_questao' questao.id %}">
+                                {{ questao.questao_titulo }}</button></form>
                         </li>
                     {% endfor %}
                 </ul>

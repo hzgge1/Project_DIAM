@@ -11,7 +11,7 @@ from django.urls import reverse
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
-from .serializers import *
+# from .serializers import *
 
 from forum.models import Questao, Resposta, Like, Utilizador, Tag
 
@@ -192,6 +192,7 @@ def questoes_user(request):
 
 def detalhe_questao(request, questao_id):
     questao = get_object_or_404(Questao, pk=questao_id)
+    like = isLiked(request, questao)
     if request.method == 'POST':
         if request.user.is_authenticated:
             try:
@@ -200,16 +201,24 @@ def detalhe_questao(request, questao_id):
                                     resposta_data=timezone.now())
             except(KeyError):
                 list_respostas = Resposta.objects.filter(questao=questao)
-                return render(request, "detalhe_questao.html", {'questao': questao, "list": list_respostas, "erro_message": "Erro"})
+                return render(request, "detalhe_questao.html", {'questao': questao, "list": list_respostas, "like":like, "erro_message": "Erro"})
             list_respostas = Resposta.objects.filter(questao=questao)
-            return render(request, 'detalhe_questao.html', {'questao': questao, "list": list_respostas})
+            return render(request, 'detalhe_questao.html', {'questao': questao, "list": list_respostas, "like":like})
         else:
-            list_respostas = Resposta.objects.filter(Questao=questao)
-            return render(request, 'detalhe_questao.html', {'questao':questao, 'list':list_respostas, 'error_message':"Login necessário"})
+            list_respostas = Resposta.objects.filter(questao=questao)
+            return render(request, 'detalhe_questao.html', {'questao':questao, 'list':list_respostas, "like":like, 'error_message':"Login necessário"})
     else:
         list_respostas = Resposta.objects.filter(questao=questao)
-        return render(request, 'detalhe_questao.html', {'questao': questao, "list": list_respostas})
+        return render(request, 'detalhe_questao.html', {'questao': questao, "list": list_respostas,"like":like})
 
+def isLiked(request,questao):
+    if request.user.is_authenticated:
+        try:
+            Like.objects.get(questao=questao, user=request.user)
+            return True
+        except Like.DoesNotExist:
+            return False
+    else: return False
 
 @login_required(login_url='/forum/login')
 def apagar_questao(request, questao_id):
@@ -227,23 +236,27 @@ def like_questao(request, questao_id):
     try:
         like = Like.objects.get(user=request.user, questao=questao)
         like.delete()
+        questao.numero_likes-=1
+        questao.save()
     except Like.DoesNotExist:
         Like.objects.create(user=request.user, questao=questao)
-    return HttpResponseRedirect(reverse("forum:detalhe_questao", args=questao_id))
+        questao.numero_likes+=1
+        questao.save()
+    return HttpResponseRedirect(reverse("forum:detalhe_questao", args=(questao_id,)))
 
 # react
-
-@api_view(['GET', 'POST']) #(3)
-def questoes_lista(request):
-    if request.method == 'GET': #(4)
-        questoes = Questao.objects.all()
-        serializerQ = QuestaoSerializer(questoes, context={'request':
-                                                           request}, many=True)
-        return Response(serializerQ.data)
-    elif request.method == 'POST': #(4)
-        serializer = QuestaoSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(status=status.HTTP_201_CREATED)
-        return Response(serializer.errors,
-                    status=status.HTTP_400_BAD_REQUEST)
+#
+# @api_view(['GET', 'POST']) #(3)
+# def questoes_lista(request):
+#     if request.method == 'GET': #(4)
+#         questoes = Questao.objects.all()
+#         serializerQ = QuestaoSerializer(questoes, context={'request':
+#                                                            request}, many=True)
+#         return Response(serializerQ.data)
+#     elif request.method == 'POST': #(4)
+#         serializer = QuestaoSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors,
+#                     status=status.HTTP_400_BAD_REQUEST)
