@@ -5,7 +5,7 @@
     <div class="detalhe_questao_content">
         <div class="info_questao">
 
-            <h1>{{ questao.questao_texto }}</h1>
+            <h1>{{ questao.questao_texto }} {{ questao.numero_likes }} likes</h1>
             <p>
                 Clarify is a forum for all things related to coding. With a community of
                                 passionate coders, you can find resources on a wide range of programming
@@ -27,6 +27,7 @@
 
 
         <div class="lista_resposta">
+            <label for="">Respostas</label>
             {% if list %}
                 <ul>
                     {% for resposta in list %}
@@ -41,12 +42,12 @@
 
         </div>
 
-        <form class="detalhe_questao_form" action="{% url 'forum:criar_questao' %}" method="post">
+        <form class="detalhe_questao_form" action="{% url 'forum:detalhe_questao' questao.id %}" method="post">
             {% csrf_token %}
 
 
-            <label for="tags">Resposta</label><br>
-            <textarea class="text_area" type="text" name="descricao" rows="3" cols="50" required></textarea><br>
+
+            <textarea placeholder="Resposta" class="text_area" type="text" name="resposta_texto" rows="5" cols="50" required></textarea><br>
 
             <button type="submit">Submeter Resposta</button>
         </form>

@@ -9,16 +9,15 @@
         <form action="{% url 'forum:editar_perfil' %}" method="post">
             {% csrf_token %}
             <h2>Editar Perfil</h2>
-            <label for="firstname">First Name:</label>
-            <input type="text" name="firstname" value="{{ request.user.first_name }}" required/>
-            <label for="lastname">Last Name:</label>
-            <input type="text" name="lastname" value="{{ request.user.last_name }}" required />
-            <label for="username">User Name:</label>
-            <input type="text" name="username" value="{{ request.user.username }}" required />
-            <label for="email">E-mail:</label>
-            <input type="email" name="email" value="{{ request.user.email }}" required/>
-            <label for="descricao">Descricao:</label>
-            <textarea name="descricao" rows="3" cols="50" required >{{ request.user.utilizador.descricao }}</textarea>
+            <input placeholder="Primeiro Nome" type="text" name="firstname" value="{{ request.user.first_name }}" required/>
+
+            <input placeholder="Último Nome" type="text" name="lastname" value="{{ request.user.last_name }}" required />
+
+            <input placeholder="Username" type="text" name="username" value="{{ request.user.username }}" required />
+
+            <input placeholder="E-mail" type="email" name="email" value="{{ request.user.email }}" required/>
+
+            <textarea placeholder="Descrição" name="descricao" rows="3" cols="50" required >{{ request.user.utilizador.descricao }}</textarea>
             <button type="submit">Editar Perfil</button>
         </form>
     </div>
