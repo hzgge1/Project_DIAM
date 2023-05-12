@@ -10,6 +10,7 @@ urlpatterns = [
     path("logout", views.logoutView, name="logoutView"), # funcao logout -> pagina index
     path("sign_up", views.sign_up, name="sign_up"), # pagina signup / funcao registar -> pagina login
     path("editar_perfil", views.editar_perfil, name='editar_perfil'), # pagina editar perfil / funcao editar perfil -> pagina perfil
+    path("editar_foto_perfil", views.editar_foto_perfil, name='editar_foto_perfil'),
 
     path("profile", views.profile, name="profile"), # pagina perfil
     path("criar_questao", views.criar_questao, name="criar_questao"), # pagina criar questao / funcao criar questao -> pagina index
