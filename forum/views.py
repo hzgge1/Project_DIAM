@@ -57,6 +57,7 @@ def sign_up(request):
             username = request.POST['username']
             password = request.POST['password']
             email = request.POST['email']
+            descricao = request.POST['descricao']
             try:
                 if User.objects.filter(username=username).exists():
                     return render(request, "sign_up.html",
@@ -66,7 +67,7 @@ def sign_up(request):
                                   {'error_message': 'Erro: Endereço de e-mail já está em uso'})
 
                 user = User.objects.create_user(username, email, password, first_name=firstname, last_name=lastname)
-                utilizador = Utilizador(user=user, imageURL="images/default.png", descricao="Sem Descrição.")
+                utilizador = Utilizador(user=user, imageURL="images/default.png", descricao=descricao)
                 utilizador.save()
                 return HttpResponseRedirect(reverse("forum:loginView"))
             except:
