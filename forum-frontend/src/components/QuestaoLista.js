@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import { Table } from "reactstrap";
+
 class QuestaoLista extends Component {
     render() {
-        const questoes = this.props.questoes; {/* (20) */}
+        const questoes = this.props.questoes; {}
         return (
-            <Table light> {/* (21) */}
-                <thead> {/* (22) */}
+            <Table light> {}
+                <thead> {}
                 <tr>
                     <th>Questões</th>
                     <th>Descrição</th>
                     <th></th>
                 </tr>
                 </thead>
-                <tbody> {/* (23) */}
+                <tbody> {}
                 {!questoes || questoes.length <= 0 ? (
                     <tr>
                         <td colSpan="6" align="center">
@@ -21,7 +22,7 @@ class QuestaoLista extends Component {
                         </td>
                     </tr>
                 ) : (
-                    questoes.map(questao => ( // (24)
+                    questoes.map(questao => (
                         <tr key={questao.pk}>
                             <td>{questao.questao_titulo}</td>
                             <td>{questao.questao_descricao}</td>

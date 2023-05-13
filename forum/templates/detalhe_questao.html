@@ -12,14 +12,14 @@
             <form action="{% url 'forum:like_questao' questao.id %}">
 
 
-                {#                <button type="submit" class="like">#}
+
                 {% if like %}
 
-                    <button id="heart-button" class="fa fa-heart" style="color: red"></button>
+                    <button id="heart-button" class="fa fa-heart" style="color: red; font-size: 20px"></button>
 
                 {% else %}
 
-                    <button id="heart-button" class="far fa-heart" style="color: black"></button>
+                    <button id="heart-button" class="far fa-heart" style="color: black; font-size: 20px"></button>
 
                 {% endif %}
 
@@ -57,7 +57,7 @@
 
             <textarea placeholder="Resposta" class="text_area" type="text" name="resposta_texto" rows="5" cols="50" required></textarea><br>
 
-            <button type="submit">Submeter Resposta</button>
+            <button class="submeter" type="submit">Submeter Resposta</button>
         </form>
 
     </div>
