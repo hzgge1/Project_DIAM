@@ -1,15 +1,15 @@
-/***** Geral *****/
+/*************************************** Geral **********************************+****/
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 * {
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    /*falta o tipo de letra*/
 }
 
 *:focus {
-    outline: none; /* tira  */
+    outline: none;
 }
 
 body {
@@ -21,6 +21,7 @@ body {
 }
 
 /************************************************ Header ************************************************/
+
 header {
     display: flex;
     justify-content: center;
@@ -32,12 +33,13 @@ header nav {
     overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* add this */
+    justify-content: space-between;
     height: 100%;
     width: 100%;
 }
 
-/****** Nav-Logo ******/
+/*************************************** Nav-Logo *********************************************/
+
 header nav img {
     background-color: white;
     border-radius: 50%;
@@ -47,7 +49,7 @@ header nav img {
     padding: 2px;
 }
 
-/****** Nav-Seacr bar ******/
+/******************************** Nav-Seacr bar ***************************************/
 header nav .search-form {
     display: flex;
     margin: 0;
@@ -55,7 +57,6 @@ header nav .search-form {
 
 header nav input[type="text"] {
     margin-top: 10px;
-    /*margin-left: 10px;*/
     height: 30px;
     width: 500px;
     border-radius: 5px 0 0 5px;
@@ -70,13 +71,11 @@ header nav input[type="text"]:focus {
 
 header nav input[type="submit"] {
     margin-top: 10px;
-    /*margin-left: 10px;*/
     height: 30px;
     width: 50px;
     border-radius: 0 5px 5px 0;
     border: none;
     padding: 0;
-    /*padding-left: 10px;*/
     box-sizing: border-box;
 }
 
@@ -92,7 +91,8 @@ header nav input[type="submit"]:focus {
     outline: none;
 }
 
-/****** Nav-Menu Botton ******/
+/*********************************** Nav-Menu Botton ************************************/
+
 .button_nav_list {
     float: left;
     display: inline-block;
@@ -125,6 +125,7 @@ header nav button:focus {
 }
 
 /************************************************ Main ************************************************/
+
 section {
     background-color: #f2f2f2;
     display: flex;
@@ -132,15 +133,16 @@ section {
 }
 /********************* Profile ********************************************/
 .nav-perfil {
-    flex: 0 0 20%; /* ocupa 20% da largura do contêiner */
+    flex: 0 0 20%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #e2f0d6; /* set the background color for the aside */
+    background-color: #e2f0d6;
     height: 100%;
 }
 
 /****** Profile-Numero de Questoes Criadas ******/
+
 .nav_perfil h4 {
     margin-bottom: 20px;
 }
@@ -149,7 +151,7 @@ section {
 .profile_picture {
     width: 200px;
     height: 200px;
-    margin-bottom: 20px; /* add some margin to separate the picture and the buttons */
+    margin-bottom: 20px;
     border-radius: 50%;
     overflow: hidden;
     margin-top: 20px;
@@ -176,7 +178,7 @@ section {
 }
 
 .button_list li {
-    margin-bottom: 10px; /* add some margin between the buttons */
+    margin-bottom: 10px;
     margin-top: 10px;
 
 }
@@ -198,14 +200,14 @@ li a:hover {
 }
 /********************* Main-right *****************************************/
 .main {
-    flex: 1; /* ocupa o restante da largura do contêiner */
-    background-color: white; /* exemplo de cor de fundo */
+    flex: 1;
+    background-color: white;
     align-items: center
 }
 
 /********************* Main-full ******************************************/
 .main full-width {
-    flex-basis: 100%; /* ocupa 100% da largura do contêiner */
+    flex-basis: 100%;
     background-color: white;
     align-items: center
 }
@@ -229,7 +231,7 @@ footer p {
 
 .social-icons a {
     display: inline-block;
-    margin: 0 5px; /* reduz a margem horizontal */
+    margin: 0 5px;
 }
 
 .social-icons a i {
@@ -237,16 +239,19 @@ footer p {
 }
 
 /************************************************ Pages *****************************************/
+
+
 /********************* About ******************************************/
 .about_container {
     width: 100%;
-    height: 100%; /* altura total da página */
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .about_clarify_logo {
     margin-top: 50px;
+    margin-bottom: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -265,13 +270,13 @@ footer p {
 }
 
 .about_text_container p {
-    font-size: 1.2em; /* Set the desired font size */
-    /*margin-top: 20px;*/
+    font-size: 1.2em;
     width: 80%;
     text-align: justify;
 }
 
 /********************* Criar Questao **********************************/
+
 .criarquestao_content {
     text-align: center;
     width: 50%;
@@ -285,7 +290,6 @@ footer p {
     margin-top: 40px;
 }
 
-/*comentário*/
 
 .criarquestao_form {
     display: flex;
@@ -301,10 +305,8 @@ footer p {
 .criarquestao_form input {
     max-width: 100%;
     padding: 10px;
-    /*margin-bottom: 20px;*/
     border-radius: 5px;
     border: 1px solid black;
-    /*box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);*/
 }
 
 .criarquestao_form textarea {
@@ -331,10 +333,11 @@ footer p {
 }
 
 /********************* Index ******************************************/
+
 .index_content {
     font-size: large;
-    width: 100%; /* adjust as needed */
-    overflow: hidden; /* clearfix to contain floated elements */
+    width: 100%;
+    overflow: hidden;
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -372,8 +375,6 @@ footer p {
 .texto_introducao {
     font-size: 20px;
     margin-top: 5%;
-    /*align-items: center;*/
-    /*justify-content: center;*/
     text-align: justify;
 }
 
@@ -415,7 +416,7 @@ footer p {
 
 .lista_questoes_container {
     width: 100%;
-    height: 100%; /* altura total da página */
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -466,6 +467,7 @@ footer p {
 
 
 /********************* Login form *************************************/
+
 .login_content {
     width: 30%;
     height: 40%;
@@ -512,6 +514,7 @@ footer p {
 
 
 /********************* Profile ****************************************/
+
 .profile_content {
     font-size: large;
 }
@@ -537,6 +540,7 @@ footer p {
 }
 
 /********************* Sign up ****************************************/
+
 .signup_content {
     text-align: center;
     width: 30%;
@@ -547,10 +551,6 @@ footer p {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.signup_content .control {
-    /*margin-top: 20px;*/
 }
 
 .signup_content form {
@@ -591,6 +591,7 @@ footer p {
 
 
 /********************* Editar perfil **********************************/
+
 .editar_perfil_conteudo{
     width: 50%;
     margin: 80px 25% 0 25%;
@@ -622,7 +623,7 @@ footer p {
 
 .editar_perfil_conteudo form textarea {
     max-width: 100%;
-    max-height: 200px;
+    max-height: 100px;
 }
 
 .editar_perfil_conteudo form button[type="submit"] {
@@ -646,6 +647,7 @@ footer p {
 }
 
 /********************* Editar Foto ************************************/
+
 .editar_foto_conteudo{
     display: flex;
     justify-content: center;
@@ -684,7 +686,7 @@ footer p {
     text-align: center;
     display: inline-block;
     padding: 10px 20px;
-    background-color: #95ab63; /* Change to the desired color */
+    background-color: #95ab63;
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
@@ -705,8 +707,6 @@ input[type="file"] {
 .editar_foto_conteudo form button[type="submit"]:hover {
     background-color: #c1d19b;
 }
-
-
 
 /***********************************detalhe_questao****************************************************************/
 
@@ -731,6 +731,40 @@ input[type="file"] {
     max-height: 100px;
 }
 
+.info_questao .apagar {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #95ab63;
+    margin-top: 20px;
+    margin-right: 5px;
+}
+
+.info_questao .apagar:hover {
+    background-color: #c1d19b;
+}
+
+.info_questao form #heart-button{
+    border: none;
+    background-color: white;
+    margin-right: 10px;
+}
+
+.detalhe_questao_form .submeter {
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    background-color: #95ab63;
+}
+
+.detalhe_questao_form .submeter:hover {
+    background-color: #c1d19b;
+}
+
 .detalhe_questao_form .apagar{
     margin-top: 20px;
 }
@@ -748,7 +782,6 @@ input[type="file"] {
     clear: both;
     overflow-y: scroll;
 }
-
 
 
 .lista_resposta {
@@ -769,7 +802,6 @@ input[type="file"] {
 }
 
 .lista_resposta li {
-    /*font-weight: bold;*/
     margin-bottom: 5px;
     color: white;
     list-style: none;

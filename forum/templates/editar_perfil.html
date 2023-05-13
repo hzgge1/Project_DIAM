@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block conteudo %}
+
     <div class="editar_perfil_conteudo">
         <form action="{% url 'forum:editar_perfil' %}" method="post">
             {% csrf_token %}
@@ -22,4 +23,5 @@
             <button type="submit">Editar Perfil</button>
         </form>
     </div>
+
 {% endblock %}

@@ -4,12 +4,12 @@ import QuestaoLista from "./QuestaoLista";
 import axios from "axios";
 import { API_URL_QUESTOES } from "../constants";
 import myImage from '../static/images/model.png';
-//(13)
-class Home extends Component { //(14)
+
+class Home extends Component {
     state = {
         questoes: []
     };
-    componentDidMount() { //(16)
+    componentDidMount() {
         this.resetState();
     }
     getQuestoes = () => {

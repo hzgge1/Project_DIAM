@@ -11,11 +11,6 @@ function Header() {
             <img src={myImage} alt="Logo" />
         </a>
 
-        {/*<form className="search-form" action="/forum/pesquisa_questoes" method="post">*/}
-        {/*  <input type="text" name="tags" placeholder="Search Tags .." />*/}
-        {/*  <input type="submit" value="🔍" />*/}
-        {/*</form>*/}
-
         <div className="button_nav_list">
           <a href="http://127.0.0.1:8000/forum/about"><button>About</button></a>
           <a href="http://127.0.0.1:8000/forum/login"><button>Login</button></a>

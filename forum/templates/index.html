@@ -1,6 +1,9 @@
 {% load static %}
+
 <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}" />
+
 <!DOCTYPE html>
+
 <html>
     <head>
       <title>Clarify</title>
@@ -44,16 +47,27 @@
         <section>
             {% if request.user.is_authenticated %}
             <div class="nav-perfil">
+
                 <div class="profile_picture">
-                    <img id="foto_perfil" src="{% static user.utilizador.imageURL %}" alt="Profile Picture">
+                    {% if user.is_superuser %}
+                        <img id="foto_perfil" src="{% static 'images/profile.jpg' %}" alt="Profile Picture">
+                    {% else %}
+                        <img id="foto_perfil" src="{% static user.utilizador.imageURL %}" alt="Profile Picture">
+                    {% endif %}
                 </div>
                 {% if not request.user.is_superuser %}
                 <h4>Questões Criadas: {{request.user.utilizador.numeroQuestoes}} / 10</h4>
                 {% endif %}
                 <ul class="button_list">
-                    <li>
-                        <a href="{% url 'forum:editar_perfil' %}" class="button">Editar Perfil</a>
-                    </li>
+                    {% if not user.is_superuser %}
+                        <li>
+                            <a href="{% url 'forum:profile' %}" class="button">Perfil</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'forum:editar_perfil' %}" class="button">Editar Perfil</a>
+                        </li>
+
+                    {% endif %}
                     <li>
                         <a href="{% url 'forum:questoes_user' %}" class="button">Questões</a>
                     </li>
