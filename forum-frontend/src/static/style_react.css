@@ -101,3 +101,109 @@ header nav button:focus {
     outline: none;
     box-shadow: 0 0 0 2px #95ab63;
 }
+
+/*************************************footer***********************************************/
+footer {
+    background-color: #95ab63;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+footer p {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 5px; /* reduz a margem horizontal */
+}
+
+.social-icons a i {
+    color: white;
+}
+
+/***************************index***********************/
+.index_content {
+    font-size: large;
+    width: 100%; /* adjust as needed */
+    overflow: hidden; /* clearfix to contain floated elements */
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    height: 100%;
+    width: 80%;
+}
+
+.right {
+    width: 30%;
+    height: 100%;
+}
+
+.right img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.texto_introducao h2 {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.texto_introducao p {
+    width: 90%;
+}
+
+.texto_introducao {
+    font-size: 20px;
+    margin-top: 5%;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    text-align: justify;
+}
+
+
+.lista_questoes_index {
+    margin-top: 15%;
+    height: 100%;
+    overflow: auto;
+    clear: both;
+    overflow-y: scroll;
+}
+
+.lista_questoes_index ul {
+    list-style: none;
+    padding: 0;
+}
+
+.lista_questoes_index li {
+    margin-bottom: 5px;
+}
+
+
+.lista_questoes_index button {
+    height: 60px;
+    font-size: large;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: #95ab63;
+}
+
+
+.lista_questoes_index button:hover {
+    background-color: #c1d19b;
+}
+
