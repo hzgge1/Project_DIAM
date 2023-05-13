@@ -17,7 +17,8 @@
 
             <input placeholder="E-mail" type="email" name="email" value="{{ request.user.email }}" required/>
 
-            <textarea placeholder="Descrição" name="descricao" rows="3" cols="50" required >{{ request.user.utilizador.descricao }}</textarea>
+            <textarea placeholder="Descrição" name="descricao" rows="3" cols="50" required >
+                {{ request.user.utilizador.descricao }}</textarea>
             <button type="submit">Editar Perfil</button>
         </form>
     </div>

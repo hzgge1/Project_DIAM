@@ -10,17 +10,19 @@
                 {{ questao.questao_descricao }}
             </p>
             <form action="{% url 'forum:like_questao' questao.id %}">
-                <button id="heart-button" class="far fa-heart"></button>
+
 
                 {#                <button type="submit" class="like">#}
                 {% if like %}
-                    Liked {# icon com coracao premchido #}
+
+                    <button id="heart-button" class="fa fa-heart" style="color: red"></button>
+
                 {% else %}
-                    Like {# icon com coracao nao!! premchido #}
-                    <!-- icon like-->
-                    {# icon coração cheio quando deu like, vazio quando não deu #}
+
+                    <button id="heart-button" class="far fa-heart" style="color: black"></button>
+
                 {% endif %}
-{#                </button>#}
+
                 {% if request.user.is_authenticated and request.user == questao.user or request.user.is_superuser %}
                     <button type="submit" class="apagar" formaction="{% url 'forum:apagar_questao' questao.id %}" class="apagar_questao">
                         Apagar
@@ -33,7 +35,7 @@
 
 
         <div class="lista_resposta">
-            <label for="">Respostas</label>
+            <label>Respostas</label>
             {% if list %}
                 <ul>
                     {% for resposta in list %}
