@@ -1,21 +1,23 @@
 import React, { Component } from "react";
 import { Col, Container, Row } from "reactstrap";
 import QuestaoLista from "./QuestaoLista";
-import axios from "axios"; //(12)
+import axios from "axios";
 import { API_URL_QUESTOES } from "../constants";
 //(13)
 class Home extends Component { //(14)
-    state = { //(15)
-        questoes: [],
+    state = {
+        questoes: []
     };
     componentDidMount() { //(16)
         this.resetState();
     }
     getQuestoes = () => {
         axios.get(API_URL_QUESTOES).then(res => this.setState({ questoes:
-            res.data })); //(17)
+            res.data }));
+
     };
-    resetState = () => { //(16)
+
+    resetState = () => {
         this.getQuestoes();
     };
     render() {

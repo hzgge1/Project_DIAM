@@ -1,11 +1,12 @@
 import React from 'react';
-import '../static/style_react.css';
+import '../static/style/style_react.css';
 function Header() {
     return (
 
         <header>
       <nav>
-        <a href="/"><img src="forum/static/images/clarify_logo.png" alt="Logo" /></a>
+        <img src="https://keystoneacademic-res.cloudinary.com/image/upload/q_auto,f_auto,w_743,c_limit/element/1
+1/111948_2.jpg" alt="Logo" />
 
         <form className="search-form" action="/forum/pesquisa_questoes" method="post">
           <input type="text" name="tags" placeholder="Search Tags .." />
