@@ -1,28 +1,28 @@
 import React from 'react';
-function Header() { //(8)
-    return ( //(9)
-        <>
-            <div className="text-center">
-                <img
-                    src="https://keystoneacademic-res.cloudinary.com/image/upload/q_auto,f_auto,w_743,c_limit/element/11/111948_2.jpg"
-                    width="300"
-                    alt="ISCTE"
-                    className="img-thumbnail"
-                    style={{ marginTop: "20px" }} //(10)
-                />
-                <br />
-                <br />
-                <h5>
-                    <i>Desenvolvimento para a Internet e Aplicações Móveis (LEI
-                        e LIGE)</i>
-                </h5>
-                <br />
-                <hr />
-                <br />
-                <h2>Exemplo de integração de Django com React</h2>
-                <br />
-            </div>
-        </> //(9)
+import '../static/style_react.css';
+function Header() {
+    return (
+
+        <header>
+      <nav>
+        <a href="/"><img src="forum/static/images/clarify_logo.png" alt="Logo" /></a>
+
+        <form className="search-form" action="/forum/pesquisa_questoes" method="post">
+          <input type="text" name="tags" placeholder="Search Tags .." />
+          <input type="submit" value="🔍" />
+        </form>
+
+        <div className="button_nav_list">
+          <a href="/forum/about"><button>About</button></a>
+
+          <a href="/forum/logout"><button>Logout</button></a>
+
+          <a href="/forum/login"><button>Login</button></a>
+          <a href="/forum/signup"><button>Sign Up</button></a>
+        </div>
+      </nav>
+    </header>
+
     );
 }
 export default Header;
