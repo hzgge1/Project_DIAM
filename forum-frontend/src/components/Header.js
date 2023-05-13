@@ -1,9 +1,6 @@
 import React from 'react';
 import '../static/style/style_react.css';
 import myImage from '../static/images/clarify_logo.png';
-// import about from 'forum/templates/about.html';
-// import login from 'forum/templates/login_form.html';
-// import signup from 'forum/templates/sign_up.html';
 
 function Header() {
     return (
