@@ -1,7 +1,8 @@
-#root {
-    padding: 0;
-    margin: 0;
-    height: 100%;
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 header {
@@ -143,6 +144,7 @@ footer p {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 5%;
 }
 
 .left {
@@ -213,4 +215,6 @@ footer p {
 .lista_questoes_index button:hover {
     background-color: #c1d19b;
 }
+
+
 

@@ -3,6 +3,7 @@ import { Col, Container, Row } from "reactstrap";
 import QuestaoLista from "./QuestaoLista";
 import axios from "axios";
 import { API_URL_QUESTOES } from "../constants";
+import myImage from '../static/images/model.png';
 //(13)
 class Home extends Component { //(14)
     state = {
@@ -32,7 +33,11 @@ class Home extends Component { //(14)
                             with other developers. Join Clarify today and explore the exciting world of coding!</p>
                     </div>
 
-                    <Container style={{ marginTop: "20px" }}>
+                    <Container style={{
+                        marginTop: "100px",
+                        overflow: "auto",
+                        height: "400px"
+                    }}>
                         <Row>
                             <Col>
                                 <QuestaoLista
@@ -44,7 +49,7 @@ class Home extends Component { //(14)
                     </Container>
                 </div>
                 <div className="right">
-                    <img src="forum/static/images/model.png" alt=""/>
+                    <img src={myImage} alt=""/>
                 </div>
             </div>
 
